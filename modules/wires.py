@@ -1,41 +1,45 @@
 def wires(bomb_data):
-    '''
-    colors = ['red', 'white', 'blue', 'yellow', 'black']
-    color_dict = {}
-
-    for color in colors:
-        color_dict[color] = int(input('How many ' + color + ' wires? > '))
     
-    wires = red + white + blue + yellow + black
-    if wires == 3:
-        found = False
-        if color_dict['red'] == 0:
-            print('Cut the second wire')
-            found = True
-        if not found and white > 0:
-            if input('Is the white wire the last wire? (Y/N) > ').lower() == 'y':
-                print('Cut the last wire')
-                found = True
-        if not found and blue > 1:
-            print('Cut the last blue wire')
-            found = True
-        if not found:
-            print('Cut the last wire')
-            found = True
-    if wires == 4:
-        pass
-    if wires == 5:
-        pass
-    if wires == 6:
-        pass
-    '''
     wire_list = input('Please input wires, separated with a ",": ').split(", ")
-    print(wire_list)
-    print(len(wire_list))
-    print(wire_list.count('red'))
-    print(bomb_data['test'])
-
-    '''
-
-
-    '''
+    
+    if len(wire_list) == 3:
+        if 'red' not in wire_list:
+            print (2)
+        elif 'white' == wire_list[-1]:
+            print (3)
+        elif wire_list.count('blue') > 1:
+            print(len(wire_list) - wire_list[::-1].index('blue'))
+        else:
+            print(3)
+    
+    if len(wire_list) == 4:
+        if wire_list.count('red') > 1 and bomb_data['serial_odd']:
+            print(len(wire_list) - wire_list[::-1].index('red'))
+        elif 'red' not in wire_list and wire_list[-1] == 'yellow':
+            print(1)
+        elif wire_list.count('blue') == 1:
+            print(1)
+        elif wire_list.count('yellow') > 1:
+            print(4)
+        else:
+            print(2)
+    
+    if len(wire_list) == 5:
+        if wire_list[-1] == 'black' and bomb_data['serial_odd']:
+            print(4)
+        elif wire_list.count('red') == 1 and wire_list.count('yellow') > 1:
+            print(1)
+        elif 'black' not in wire_list:
+            print(2)
+        else:
+            print(1)
+    
+    if len(wire_list) == 6:
+        if 'yellow' not in wire_list and bomb_data['serial_odd']:
+            print(3)
+        elif wire_list.count('yellow') == 1 and wire_list.count('white') > 1:
+            print(4)
+        elif 'red' not in wire_list:
+            print(6)
+        else:
+            print(4)
