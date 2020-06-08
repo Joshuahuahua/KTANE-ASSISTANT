@@ -4,42 +4,46 @@ def wires(bomb_data):
     
     if len(wire_list) == 3:
         if 'red' not in wire_list:
-            print (2)
+            print('Cut the second wire!')
         elif 'white' == wire_list[-1]:
-            print (3)
+            print('Cut the last wire!')
         elif wire_list.count('blue') > 1:
-            print(len(wire_list) - wire_list[::-1].index('blue'))
+            print('Cut wire', len(wire_list) - wire_list[::-1].index('blue'))
         else:
-            print(3)
+            print('Cut the last wire!')
     
-    if len(wire_list) == 4:
+    elif len(wire_list) == 4:
         if wire_list.count('red') > 1 and bomb_data['serial_odd']:
-            print(len(wire_list) - wire_list[::-1].index('red'))
+            print('Cut wire', len(wire_list) - wire_list[::-1].index('red'))
         elif 'red' not in wire_list and wire_list[-1] == 'yellow':
-            print(1)
+            print('Cut the first wire!')
         elif wire_list.count('blue') == 1:
-            print(1)
+            print('Cut the first wire!')
         elif wire_list.count('yellow') > 1:
-            print(4)
+            print('Cut the last wire!')
         else:
-            print(2)
+            print('Cut the second wire!')
     
-    if len(wire_list) == 5:
+    elif len(wire_list) == 5:
         if wire_list[-1] == 'black' and bomb_data['serial_odd']:
-            print(4)
+            print('Cut the fourth wire!')
         elif wire_list.count('red') == 1 and wire_list.count('yellow') > 1:
-            print(1)
+            print('Cut the first wire!')
         elif 'black' not in wire_list:
-            print(2)
+            print('Cut the second wire!')
         else:
-            print(1)
+            print('Cut the first wire!')
     
-    if len(wire_list) == 6:
+    elif len(wire_list) == 6:
         if 'yellow' not in wire_list and bomb_data['serial_odd']:
-            print(3)
+            print('Cut the third wire!')
         elif wire_list.count('yellow') == 1 and wire_list.count('white') > 1:
-            print(4)
+            print('Cut the fourth wire!')
         elif 'red' not in wire_list:
-            print(6)
+            print('Cut the last wire!')
         else:
-            print(4)
+            print('Cut the fourth wire!')
+
+    else:
+        print('---ERROR---')
+        print('Expected at least 3 wires!')
