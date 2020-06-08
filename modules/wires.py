@@ -1,8 +1,15 @@
-def solve_wires(red, white, blue, yellow, black):
+def wires(bomb_data):
+    '''
+    colors = ['red', 'white', 'blue', 'yellow', 'black']
+    color_dict = {}
+
+    for color in colors:
+        color_dict[color] = int(input('How many ' + color + ' wires? > '))
+    
     wires = red + white + blue + yellow + black
     if wires == 3:
         found = False
-        if red == 0:
+        if color_dict['red'] == 0:
             print('Cut the second wire')
             found = True
         if not found and white > 0:
@@ -21,4 +28,14 @@ def solve_wires(red, white, blue, yellow, black):
         pass
     if wires == 6:
         pass
+    '''
+    wire_list = input('Please input wires, separated with a ",": ').split(", ")
+    print(wire_list)
+    print(len(wire_list))
+    print(wire_list.count('red'))
+    print(bomb_data['test'])
 
+    '''
+
+
+    '''

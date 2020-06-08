@@ -1,12 +1,16 @@
-from modules.wires import solve_wires
+from modules.wires import wires
 
 print("Keep Talking and Nobody Explodes Assistant\nThis CLI version is just to test some stuff\n")
 
+bomb_data = {
+    'test': 0,
+    'test2': 'string',
+    'test3': True
+} 
+
 user_input = input('Enter a module (Options: Wires) > ').lower()
 
-if user_input == "wires":
-    colors = ['red', 'white', 'blue', 'yellow', 'black']
-    color_dict = {}
-    for color in colors:
-        color_dict[color] = int(input('How many ' + color + ' wires? > '))
-    solve_wires(color_dict['red'], color_dict['white'], color_dict['blue'], color_dict['yellow'], color_dict['black'])
+
+
+
+wires(bomb_data)
