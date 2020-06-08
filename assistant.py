@@ -21,7 +21,7 @@ while True:
         'port_ps2': False,
         'port_rj45': False,
         'port_rca': False,
-    } 
+    }
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
     if user_input == 'wires':
