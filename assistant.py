@@ -1,16 +1,17 @@
 from modules.wires import wires
-from modules.wires import button
+from modules.button import button
 
 print("Keep Talking and Nobody Explodes Assistant\nThis CLI version is just to test some stuff\n")
 
 bomb_data = {
     'bat_AA': 0,
     'bat_B': 0,
+    'bat_total': 0,
     'ind_LIT': [],
     'ind_UNLIT': [],
     'serial': '',
-    'serial_odd': 0,
-    'serial_vowel': 0,
+    'serial_odd': False,
+    'serial_vowel': False,
     'port_DVI': False,
     'port_parallel': False,
     'port_ps2': False,
@@ -20,13 +21,9 @@ bomb_data = {
 
 
 
-
-
-
-
-user_input = input('Enter a module (Options: Wires) > ').lower()
-if user_input == 'wires'
+user_input = input('Enter a module (Options: Wires, Button) > ').lower()
+if user_input == 'wires':
     wires(bomb_data)
-elif user_input == 'button'
+elif user_input == 'button':
     button(bomb_data)
 
