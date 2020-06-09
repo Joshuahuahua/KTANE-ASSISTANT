@@ -1,7 +1,7 @@
-from modules.simple_wires import simple_wires
-from modules.button import button
-from modules.symbols import symbols
-from modules.memory import memory
+from modules.vanilla.simple_wires import simple_wires
+from modules.vanilla.button import button
+from modules.vanilla.symbols import symbols
+from modules.vanilla.memory import memory
 
 while True:
     print('------------------------------------------')
@@ -25,7 +25,7 @@ while True:
     }
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
-    if user_input == 'simple wires':
+    if user_input == 'simple wires' or user_input == 'simple_wires':
         simple_wires(bomb_data)
     elif user_input == 'button':
         button(bomb_data)
@@ -33,6 +33,7 @@ while True:
         symbols(bomb_data)
     elif user_input == 'memory':
         memory(bomb_data)
+    
     elif user_input == 'help':
         print('\n------OPTIONS------')
         print('Simple Wires, Button, Symbols, Memory')
