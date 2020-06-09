@@ -1,5 +1,6 @@
 from modules.wires import wires
 from modules.button import button
+from wiresGUI import *
 
 print("Keep Talking and Nobody Explodes Assistant\nThis CLI version is just to test some stuff\n")
 
@@ -23,7 +24,6 @@ bomb_data = {
 
 user_input = input('Enter a module (Options: Wires, Button) > ').lower()
 if user_input == 'wires':
-    wires(bomb_data)
+    wiresGUI().start()
 elif user_input == 'button':
     button(bomb_data)
-
