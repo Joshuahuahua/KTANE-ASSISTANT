@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 from modules.wires import wires
 from modules.button import button
 
-class ProgramGUI:
+class wiresGUI:
 
     
     def __init__(self):
@@ -32,7 +32,8 @@ class ProgramGUI:
         #myFont = tkFont.Font(family = 'Helvetica', size = 16, slant = 'roman', weight = 'normal')
         
         self.main = tkinter.Tk()
-
+        
+        self.main.minsize(width=400, height=500)
         self.main.title('KTANE Assistant')
         self.main['bg']='#FFFFFF'
 
@@ -41,45 +42,83 @@ class ProgramGUI:
 
         # Images
         black_temp = Image.open('images/wires/black.png')
-        black_temp = black_temp.resize((130,32), Image.ANTIALIAS)
+        #black_temp = black_temp.resize((130,32), Image.ANTIALIAS)
         self.black = ImageTk.PhotoImage(black_temp)
 
         white_temp = Image.open('images/wires/white.png')
-        white_temp = white_temp.resize((130,32), Image.ANTIALIAS)
+        #white_temp = white_temp.resize((130,32), Image.ANTIALIAS)
         self.white = ImageTk.PhotoImage(white_temp)
 
         blue_temp = Image.open('images/wires/blue.png')
-        blue_temp = blue_temp.resize((130,32), Image.ANTIALIAS)
+        #blue_temp = blue_temp.resize((130,32), Image.ANTIALIAS)
         self.blue = ImageTk.PhotoImage(blue_temp)
 
         red_temp = Image.open('images/wires/red.png')
-        red_temp = red_temp.resize((130,32), Image.ANTIALIAS)
+        #red_temp = red_temp.resize((130,32), Image.ANTIALIAS)
         self.red = ImageTk.PhotoImage(red_temp)
 
         yellow_temp = Image.open('images/wires/yellow.png')
-        yellow_temp = yellow_temp.resize((130,32), Image.ANTIALIAS)
+        #yellow_temp = yellow_temp.resize((130,32), Image.ANTIALIAS)
         self.yellow = ImageTk.PhotoImage(yellow_temp)
 
         clear_temp = Image.open('images/wires/clear.png')
-        clear_temp = clear_temp.resize((130,32), Image.ANTIALIAS)
+        #clear_temp = clear_temp.resize((130,32), Image.ANTIALIAS)
         self.clear = ImageTk.PhotoImage(clear_temp)
+
+        red_b_temp = Image.open('images/buttons/red_b.png')
+        self.red_b = ImageTk.PhotoImage(red_b_temp)
+
+        blue_b_temp = Image.open('images/buttons/blue_b.png')
+        self.blue_b = ImageTk.PhotoImage(blue_b_temp)
+
+        yellow_b_temp = Image.open('images/buttons/yellow_b.png')
+        self.yellow_b = ImageTk.PhotoImage(yellow_b_temp)
+
+        white_b_temp = Image.open('images/buttons/white_b.png')
+        self.white_b = ImageTk.PhotoImage(white_b_temp)
+
+        black_b_temp = Image.open('images/buttons/black_b.png')
+        self.black_b = ImageTk.PhotoImage(black_b_temp)
+
+        x_b_temp = Image.open('images/buttons/x_b.png')
+        self.x_b = ImageTk.PhotoImage(x_b_temp)
+
+        confirm_temp = Image.open('images/buttons/confirm.png')
+        self.confirm_img = ImageTk.PhotoImage(confirm_temp)
+
+        self.line = ImageTk.PhotoImage(Image.open('images/buttons/line.png'))
 
         # Six rows, one for each wire
 
         self.one = tkinter.Frame(self.options, bg='#FFFFFF')
         self.one.pack()
 
+        self.separator_one = tkinter.Label(self.options, image=self.line, bg='#FFFFFF')
+        self.separator_one.pack()
+
         self.two = tkinter.Frame(self.options, bg='#FFFFFF')
         self.two.pack()
+
+        self.separator_two = tkinter.Label(self.options, image=self.line, bg='#FFFFFF')
+        self.separator_two.pack()
 
         self.three = tkinter.Frame(self.options, bg='#FFFFFF')
         self.three.pack()
 
+        self.separator_three = tkinter.Label(self.options, image=self.line, bg='#FFFFFF')
+        self.separator_three.pack()
+
         self.four = tkinter.Frame(self.options, bg='#FFFFFF')
         self.four.pack()
 
+        self.separator_four = tkinter.Label(self.options, image=self.line, bg='#FFFFFF')
+        self.separator_four.pack()
+
         self.five = tkinter.Frame(self.options, bg='#FFFFFF')
         self.five.pack()
+
+        self.separator_five = tkinter.Label(self.options, image=self.line, bg='#FFFFFF')
+        self.separator_five.pack()
 
         self.six = tkinter.Frame(self.options, bg='#FFFFFF')
         self.six.pack()
@@ -133,22 +172,18 @@ class ProgramGUI:
         
         self.confirm_frame = tkinter.Frame(self.main)
         self.confirm_frame.pack()
-        self.confirm = tkinter.Button(self.confirm_frame, text='Confirm', command=lambda: tkinter.messagebox.showinfo('Cut the following wire', wires(self.bomb_data, self.save_list())))
+        self.confirm = tkinter.Button(self.confirm_frame, image=self.confirm_img, activebackground='#FFFFFF', bg='#FFFFFF', bd=0, command=lambda: tkinter.messagebox.showinfo('Cut the following wire', wires(self.bomb_data, self.save_list())))
         self.confirm.pack()
-
-
-        tkinter.mainloop()
-
 
     def color_changer(self, frame, wire):
 
-        self.red_one = tkinter.Button(frame, text='   ', bg='#ff3030', command=lambda: wire.configure(image=self.red))
-        self.white_one = tkinter.Button(frame, text='   ', bg='#ffffff', command=lambda: wire.configure(image=self.white))
-        self.black_one = tkinter.Button(frame, text='   ', bg='#303030', command=lambda: wire.configure(image=self.black))
-        self.blue_one = tkinter.Button(frame, text='   ', bg='#1482ff', command=lambda: wire.configure(image=self.blue))
-        self.yellow_one = tkinter.Button(frame, text='   ', bg='#fffb80', command=lambda: wire.configure(image=self.yellow))
+        self.red_one = tkinter.Button(frame, bd=0, image=self.red_b, activebackground='#FFFFFF', bg='#FFFFFF', command=lambda: wire.configure(image=self.red))
+        self.white_one = tkinter.Button(frame, bd=0, image=self.white_b, activebackground='#FFFFFF', bg='#FFFFFF', command=lambda: wire.configure(image=self.white))
+        self.black_one = tkinter.Button(frame, bd=0, image=self.black_b, activebackground='#FFFFFF', bg='#FFFFFF', command=lambda: wire.configure(image=self.black))
+        self.blue_one = tkinter.Button(frame, bd=0, image=self.blue_b, activebackground='#FFFFFF', bg='#FFFFFF', command=lambda: wire.configure(image=self.blue))
+        self.yellow_one = tkinter.Button(frame, bd=0, image=self.yellow_b, activebackground='#FFFFFF', bg='#FFFFFF', command=lambda: wire.configure(image=self.yellow))
 
-        self.clear_one = tkinter.Button(frame, text=' X ', bg='#dedede', command=lambda: wire.configure(image=self.clear))
+        self.clear_one = tkinter.Button(frame, bd=0, image=self.x_b, activebackground='#FFFFFF', bg='#FFFFFF', command=lambda: wire.configure(image=self.clear))
         
         self.red_one.pack(side='left')
         self.blue_one.pack(side='left')
@@ -178,5 +213,7 @@ class ProgramGUI:
         print(self.wire_list)
         print(converted_wire_list)
         return converted_wire_list
-
-gui = ProgramGUI()
+    
+    def start(self):
+        self.main.mainloop()       
+        
