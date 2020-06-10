@@ -3,6 +3,8 @@ from modules.vanilla.button import button
 from modules.vanilla.symbols import symbols
 from modules.vanilla.memory import memory
 from modules.vanilla.password import password
+from modules.vanilla.sequence import sequence
+from modules.vanilla.complex_wires import complex_wires
 
 
 while True:
@@ -37,14 +39,17 @@ while True:
         memory(bomb_data)
     elif user_input == 'password':
         password(bomb_data)
+    elif user_input == 'sequence':
+        sequence(bomb_data)
+    elif user_input == 'complex wires' or user_input == 'complex_wires':
+        complex_wires(bomb_data)
     
     elif user_input == 'help':
         print('\n------OPTIONS------')
-        print('Simple Wires, Button, Symbols, Memory, Password')
+        print('Simple Wires, Button, Symbols, Memory,\nPassword, Sequence, Complex Wires')
         print('-------------------\n')
     elif user_input == 'quit':
         print('Goodbye!')
         break
     else:
         print('Invalid Choice!\n')
-
