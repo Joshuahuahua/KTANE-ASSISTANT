@@ -5,7 +5,7 @@ def sequence(bomb_data):
         {'list': ['abc', 'ac', 'b', 'ac', 'b', 'bc', 'ab', 'c', 'c'], 'colour': 'black', 'count': 0}
     ]
     while True:
-        input_raw = input('(Use "x" to quit or "r" to reset)\nUsage <Colour>,<Letter> ').lower().split(',')
+        input_raw = input('(Use "x" to quit or "r" to reset)\nUsage <Colour>,<Letter> ').lower().replace(' ', '').split(',')
         if input_raw[0] == 'x':
             break
         elif input_raw[0] == 'r':
@@ -16,7 +16,7 @@ def sequence(bomb_data):
             return
         for item in wire_sequence:
             if input_raw[0] == item['colour']:
-                if str(input_raw[1]).strip() in item['list'][item['count']]:
+                if str(input_raw[1]) in item['list'][item['count']]:
                     print('\nCut the wire!\n')
                 else:
                     print('\nDo NOT cut the wire!\n')
