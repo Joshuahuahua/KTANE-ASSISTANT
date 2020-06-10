@@ -1,4 +1,4 @@
-def sequence(bomb_data):
+def sequence():
     wire_sequence = [
         {'list': ['c', 'b', 'a', 'ac', 'b', 'ac', 'abc', 'ab', 'b'], 'colour': 'red', 'count': 0},
         {'list': ['b', 'ac', 'b', 'a', 'b', 'bc', 'c', 'ac', 'a'], 'colour': 'blue', 'count': 0},
@@ -10,7 +10,7 @@ def sequence(bomb_data):
             break
         elif input_raw[0] == 'r':
             print('---Reset---\n')
-            sequence(bomb_data)
+            sequence()
         elif len(input_raw) != 2:
             print('\n--ERROR--\nExpected 2 items!')
             return

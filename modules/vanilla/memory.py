@@ -1,4 +1,4 @@
-def memory(bomb_data):
+def memory():
     stored_memory = []
     #1 1234
     data = [

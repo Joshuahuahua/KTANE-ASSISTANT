@@ -34,13 +34,13 @@ while True:
     elif user_input == 'button':
         button(bomb_data)
     elif user_input == 'symbols':
-        symbols(bomb_data)
+        symbols()
     elif user_input == 'memory':
-        memory(bomb_data)
+        memory()
     elif user_input == 'password':
-        password(bomb_data)
+        password()
     elif user_input == 'sequence':
-        sequence(bomb_data)
+        sequence()
     elif user_input == 'complex wires' or user_input == 'complex_wires':
         complex_wires(bomb_data)
     
