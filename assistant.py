@@ -2,6 +2,8 @@ from modules.vanilla.simple_wires import simple_wires
 from modules.vanilla.button import button
 from modules.vanilla.symbols import symbols
 from modules.vanilla.memory import memory
+from modules.vanilla.password import password
+
 
 while True:
     print('------------------------------------------')
@@ -33,10 +35,12 @@ while True:
         symbols(bomb_data)
     elif user_input == 'memory':
         memory(bomb_data)
+    elif user_input == 'password':
+        password(bomb_data)
     
     elif user_input == 'help':
         print('\n------OPTIONS------')
-        print('Simple Wires, Button, Symbols, Memory')
+        print('Simple Wires, Button, Symbols, Memory, Password')
         print('-------------------\n')
     elif user_input == 'quit':
         print('Goodbye!')
