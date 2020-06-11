@@ -7,27 +7,50 @@ from modules.vanilla.sequence import sequence
 from modules.vanilla.complex_wires import complex_wires
 from modules.vanilla.knob import knob
 
+# List of unlit/lit (2 seperate lists) indicators. all caps
+# Serial number
+# Number of big batteries
+# Number of double A batteries
+while True:
+    try:
+        aabatteries = int(input('Number of idividual AA batteries: '))
+        if (aabatteries % 2) == 0:
+            break
+        else:
+            print('Please enter an even number (AA Batteries always come in pairs)')
+            continue
+    except ValueError:
+        print('Please enter a whole number')
+        pass
+
+while True:
+    try:
+        bigbatteries = int(input('Number of big batteries: '))
+        break
+    except ValueError:
+        print('Please enter a whole number')
+        pass
+
+
+
+bomb_data = {
+    'bat_AA': aabatteries,
+    'bat_B': bigbatteries,
+    'bat_total': aabatteries+bigbatteries,
+    'ind_LIT': [],
+    'ind_UNLIT': [],
+    'serial': input('Serial number:'),
+    'serial_odd': False,
+    'serial_vowel': False,
+    'port_parallel': False,
+}
+
 
 while True:
     print('\n------------------------------------------')
     print('Keep Talking and Nobody Explodes Assistant')
     print('------------------------------------------\n')
 
-    bomb_data = {
-        'bat_AA': 0,
-        'bat_B': 0,
-        'bat_total': 0,
-        'ind_LIT': [],
-        'ind_UNLIT': [],
-        'serial': '',
-        'serial_odd': False,
-        'serial_vowel': False,
-        'port_DVI': False,
-        'port_parallel': False,
-        'port_ps2': False,
-        'port_rj45': False,
-        'port_rca': False,
-    }
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
     if user_input == 'simple wires' or user_input == 'simple_wires':
