@@ -6,6 +6,7 @@ from modules.vanilla.password import password
 from modules.vanilla.sequence import sequence
 from modules.vanilla.complex_wires import complex_wires
 from modules.vanilla.knob import knob
+from modules.vanilla.whos_on_first import whos_on_first
 
 # List of unlit/lit (2 seperate lists) indicators. all caps
 # Serial number
@@ -69,11 +70,14 @@ while True:
         complex_wires(bomb_data)
     elif user_input == 'knob':
         knob()
+    elif user_input == 'whos on first' or user_input == 'who\'s on first' or user_input == 'wof':
+        whos_on_first()
     
     elif user_input == 'help':
         print('\n------OPTIONS------')
         print('Simple Wires, Button, Symbols, Memory')
         print('Password, Sequence, Complex Wires, Knob')
+        print('Who\'s on first')
         print('-------------------')
     elif user_input == 'quit':
         print('Goodbye!')
