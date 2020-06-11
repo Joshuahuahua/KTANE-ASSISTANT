@@ -37,7 +37,7 @@ def memory():
     for i in range(0, 5):
         while True:
             try:
-                memory_raw = input('Input main number followed by 4 smaller numbers: ')
+                memory_raw = int(input('Input main number followed by 4 smaller numbers: '))
                 if len(memory_raw) != 5:
                     raise
                 break
