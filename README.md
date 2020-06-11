@@ -15,8 +15,7 @@ placeholder text
 
 
 ## Requirements
-- Python
-- Pillow
+- Python 3
 
 ## Installation
 :)
