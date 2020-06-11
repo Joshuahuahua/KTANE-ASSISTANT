@@ -1,1 +1,1 @@
-# KTANE-ASSISTANT
+# Keep Talking and Nobody Explodes Assistant (CLI)
