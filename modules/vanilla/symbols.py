@@ -1,5 +1,5 @@
 def symbols():
-    symbols_input = input('Usage <symbol1, symbol2, symbol3, symbol4>: ').lower().replace(' ', '').split(',')
+    symbols_input = input('Usage <symbol1, symbol2, symbol3, symbol4>: ').lower().replace(', ', ',').split(',')
     if len(symbols_input) != 4:
         print('--ERROR--\nExpected 4 items!')
         return

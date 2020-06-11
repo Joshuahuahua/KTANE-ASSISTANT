@@ -6,7 +6,7 @@ def complex_wires(bomb_data):
     
     while True:
         wire = [0,0,0,0]
-        perams = input('Usage <trait1, trait2...>: ').lower().replace(' ', '').split(',')
+        perams = input('Usage <trait1, trait2...>: ').lower().replace(', ', ',').split(',')
         if perams[0] == 'x':
             return
         if 'red' in perams:

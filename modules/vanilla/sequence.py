@@ -5,7 +5,7 @@ def sequence():
         {'list': ['abc', 'ac', 'b', 'ac', 'b', 'bc', 'ab', 'c', 'c'], 'colour': 'black', 'count': 0}
     ]
     while True:
-        input_raw = input('(Use "x" to quit or "r" to reset)\nUsage <Colour>,<Letter> ').lower().replace(' ', '').split(',')
+        input_raw = input('(Use "x" to quit or "r" to reset)\nUsage <Colour>,<Letter> ').lower().replace(', ', ',').split(',')
         if input_raw[0] == 'x':
             break
         elif input_raw[0] == 'r':

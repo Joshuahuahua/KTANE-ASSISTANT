@@ -1,5 +1,5 @@
 def button(bomb_data):
-    button_raw = input('Usage <colour, word>: ').lower().replace(' ', '').split(',')
+    button_raw = input('Usage <colour, word>: ').lower().replace(', ', ',').split(',')
     if len(button_raw) != 2:
         print('\n--ERROR--\nExpected 2 items!')
         return

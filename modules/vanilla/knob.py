@@ -9,7 +9,7 @@ def knob():
     ]
 
     try:
-        knob = input('Number of lit LED\'s on left\nUsage <"UP" direction><1-5/5U>: ').upper().replace(' ', '').split(',')
+        knob = input('Number of lit LED\'s on left\nUsage <"UP" direction><1-5/5U>: ').upper().replace(', ', ',').split(',')
         if len(knob) != 2:
             print('\n--ERROR--\nExpected 2 items!')
             return

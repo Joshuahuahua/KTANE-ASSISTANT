@@ -1,6 +1,6 @@
 def simple_wires(bomb_data):
     
-    wire_list = input('Please input wires, separated with a ",": ').lower().replace(' ', '').split(',')
+    wire_list = input('Please input wires, separated with a ",": ').lower().replace(', ', ',').split(',')
     
     if len(wire_list) == 3:
         if 'red' not in wire_list:
