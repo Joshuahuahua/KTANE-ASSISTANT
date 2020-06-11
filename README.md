@@ -3,10 +3,15 @@
 </p>
 
 <h1 align="center">Keep Talking and Nobody Explodes Assistant (CLI)</h1>
+<p align="center">A script to make lazy people lazier</p>
 
 ## Contents
+- [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Installation](#installation)
+
+## Introduction
+placeholder text
 
 
 ## Requirements
