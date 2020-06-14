@@ -17,6 +17,29 @@ def convert(maze):
     print(str(maze) + '\n')
 
 
+def generate_Maze(maze_x, maze_y):
+    for x in range(maze_x)
+        maze[0].append('#')
+    for y in range(maze_y-2)
+        maze[y+1].append('#')
+        for x in range(maze_x-2)
+            maze[y+1].append(' ')
+        maze[y+1].append('#')
+    for x in range(maze_x)
+        maze[0].append('#')
+
+
+    maze.insert(0,
+['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'])
+    maze.append(['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'])
+    for i, x in enumerate(maze):
+        maze[i].insert(0, '#')
+        maze[i].append('#')
+    print(str(maze) + '\n')
+
+
+
+
 
 maze_1 = [
     [' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' '],
@@ -145,7 +168,7 @@ maze_9 = [
     ]
             
 
-
+'''
 
 maze_1 = convert(maze_1)
 maze_2 = convert(maze_2)
@@ -290,3 +313,7 @@ maze_9 = convert(maze_9)
 ['#', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', '#'],
 ['#', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#'],
 ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']]
+
+
+
+'''
