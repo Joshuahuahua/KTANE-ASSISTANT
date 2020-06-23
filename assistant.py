@@ -8,6 +8,7 @@ from modules.vanilla.complex_wires import complex_wires
 from modules.vanilla.knob import knob
 from modules.vanilla.whos_on_first import whos_on_first
 from modules.vanilla.morse import morse
+from modules.vanilla.maze import maze
 
 ind_lit = []
 ind_unlit = []
@@ -38,14 +39,14 @@ while True:
     if user_input == '':
         break
     else:
-        ind_lit.append()
+        ind_lit.append(user_input)
 
 while True:
     user_input = input('Enter the labels of the UNLIT indicators (Enter nothing to continue/skip): ')
     if user_input == '':
         break
     else:
-        ind_unlit.append()
+        ind_unlit.append(user_input)
 
 while True:
     try:
@@ -107,6 +108,8 @@ while True:
         whos_on_first()
     elif user_input == 'morse' or user_input == 'morse code':
         morse()
+    elif user_input == 'maze':
+        maze()
     
     elif user_input == 'help':
         print('\n------OPTIONS------')
