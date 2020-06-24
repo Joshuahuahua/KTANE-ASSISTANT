@@ -88,19 +88,19 @@ def init():
         port_parallel = False
         
     if input('Is there a DVI port? (Y/N): ').lower() == 'y':
-        port_DVI = True
+        port_dvi = True
     else:
-        port_DVI = False
+        port_dvi = False
         
     if input('Is there a PS2 port? (Y/N): ').lower() == 'y':
-        port_PS2 = True
+        port_ps2 = True
     else:
-        port_PS2 = False
+        port_ps2 = False
         
     if input('Is there a RJ45 port? (Y/N): ').lower() == 'y':
-        port_RJ45 = True
+        port_rj45 = True
     else:
-        port_RJ45 = False
+        port_rj45 = False
         
     if input('Is there a Serial port? (Y/N): ').lower() == 'y':
         port_serial = True
@@ -108,9 +108,9 @@ def init():
         port_serial = False
         
     if input('Is there a RCA port? (Y/N): ').lower() == 'y':
-        port_RCA = True
+        port_rca = True
     else:
-        port_RCA = False
+        port_rca = False
         
 
 
@@ -130,6 +130,8 @@ def init():
         'port_serial': port_serial,
         'port_rca': port_rca,
     }
+
+    print('---\nSetup Complete\n---')
     return bomb_data
 
 bomb_data = init()
@@ -140,7 +142,6 @@ while True:
     print('------------------------------------------\n')
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
-    
     
 ###################################### VANILLA ######################################
 
@@ -168,48 +169,8 @@ while True:
         morse()
     elif user_input == 'maze':
         maze()
+        
 ###################################### MODDED ######################################
-'''
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-'''
-
-
-
-
-
-
-
-
-
-
-
-
-
     elif user_input == 'help':
         print('\n------OPTIONS------')
         print('Simple Wires, Button, Symbols, Memory')
@@ -221,3 +182,34 @@ while True:
         break
     else:
         print('Invalid Choice!')
+
+
+
+    '''
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    elif user_input == 'BLANK':
+        BLANK()
+    '''
