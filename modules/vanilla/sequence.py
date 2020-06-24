@@ -1,11 +1,12 @@
-def sequence():
+def sequence(input_raw):
     wire_sequence = [
         {'list': ['c', 'b', 'a', 'ac', 'b', 'ac', 'abc', 'ab', 'b'], 'colour': 'red', 'count': 0},
         {'list': ['b', 'ac', 'b', 'a', 'b', 'bc', 'c', 'ac', 'a'], 'colour': 'blue', 'count': 0},
         {'list': ['abc', 'ac', 'b', 'ac', 'b', 'bc', 'ab', 'c', 'c'], 'colour': 'black', 'count': 0}
     ]
     while True:
-        input_raw = input('(Use "x" to quit or "r" to reset)\nUsage <Colour>,<Letter> ').lower().replace(', ', ',').split(',')
+        #input_raw = input('(Use "x" to quit or "r" to reset)\nUsage <Colour>,<Letter> ').lower().replace(', ', ',').split(',')
+        input_raw = input_raw.lower().replace(', ', ',').split(',')
         if input_raw[0] == 'x':
             break
         elif input_raw[0] == 'r':

@@ -1,4 +1,4 @@
-def whos_on_first():
+def whos_on_first(input_big, input_small):
 
     wof_big = [
     {'word': '', 'position': 4},
@@ -61,10 +61,12 @@ def whos_on_first():
     {'word': 'YOU_RE', 'list': ['YOU','YOU_RE']}]
 
     while True:
-        input_big = input('Type "x" to quite.\nPlease input big word (If "", leave blank): ').upper().replace(' ', '_').replace('\'', '_')
+        #input_big = input('Type "x" to quite.\nPlease input big word (If "", leave blank): ').upper().replace(' ', '_').replace('\'', '_')
+        input_big = input_big.upper().replace(' ', '_').replace('\'', '_')
         if input_big[0] == 'x':
             return
-        input_small = input('Please input small words.\nUsage <0 word>, <1 word>...<5 word>: ').upper().replace(', ', ',').replace(' ', '_').split(',')
+        #input_small = input('Please input small words.\nUsage <0 word>, <1 word>...<5 word>: ').upper().replace(', ', ',').replace(' ', '_').split(',')
+        input_small = input_small.upper().replace(', ', ',').replace(' ', '_').split(',')
         if len(input_small) != 6:
             print('\n--ERROR--\nExpected 6 items!')
             return

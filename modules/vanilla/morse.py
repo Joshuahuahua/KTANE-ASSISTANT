@@ -1,4 +1,4 @@
-def morse():
+def morse(passed_param):
     morse_dic = [
         {'code': ['-...', '.'],           'word': 'BEATS', 'frequency': '3.600MHz'},
         {'code': ['-...', '..'],          'word': 'BISTRO', 'frequency': '3.552MHz'},
@@ -19,7 +19,8 @@ def morse():
     ]
     morse_input = []
     while True:
-        morse_input.append(input('Separate letters with a space, Use . and -\nInput morse code: '))
+        #morse_input.append(input('Separate letters with a space, Use . and -\nInput morse code: '))
+        morse_input.append(passed_param)
         if morse_input[-1] == 'r':
             morse_input = []
             print('---Reset---')
