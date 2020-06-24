@@ -1,5 +1,4 @@
-def wires(bomb_data, wire_list):
-    
+def simple_wires(bomb_data, wire_list):
     
     if len(wire_list) == 3:
         if 'red' not in wire_list:
