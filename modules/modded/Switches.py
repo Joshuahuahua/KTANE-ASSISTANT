@@ -119,4 +119,3 @@ def switch_mod():
         else:
             print('\nInvalid input')
 
-switch_mod()

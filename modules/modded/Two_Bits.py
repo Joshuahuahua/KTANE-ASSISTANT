@@ -100,7 +100,3 @@ def two_bits(bomb_data):
         except:
             print('Invalid key')
         break
-
-
-
-two_bits()
