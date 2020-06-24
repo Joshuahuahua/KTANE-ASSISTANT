@@ -13,8 +13,8 @@
 # :| = 8
 # |: = 9
 
-#Diable function and remove comments on value1 and value2 to test code. Also update indents
-def emoji_math(value1, value2):
+#Diable function and remove comments on value1 and value2 inputs aswell as neg1 and neg2 inputs to test code. Also update indents
+def emoji_math(value1, value2, neg1, neg2):
     
 
     #print("Characters:\n:)\n=(\n(:\n)=\n:(\n):\n=)\n(=\n(=\n:|\n|:")
@@ -46,7 +46,7 @@ def emoji_math(value1, value2):
             print("Invalid entry")
             continue
 
-        neg1 = input('Is this value a negative (Y/N)?: ')
+        #neg1 = input('Is this value a negative (Y/N)?: ')
         if neg1 == 'Y':
             x = x * -1
             break
@@ -82,7 +82,7 @@ def emoji_math(value1, value2):
             print("Invalid entry")
             continue
 
-        neg2 = input('Is this value a negative (Y/N)?: ')
+        #neg2 = input('Is this value a negative (Y/N)?: ')
         if neg2 == 'Y':
             y = y * -1
             break
