@@ -118,4 +118,6 @@ def switch_mod():
         
         else:
             print('\nInvalid input')
+            break
 
+switch_mod()
