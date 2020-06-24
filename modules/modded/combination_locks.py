@@ -1,11 +1,5 @@
 def combination_locks():
-    bomb_data = {
-            'bat_total': 3, 
-            'serial': '4L5Q5F', 
-            'port_rca': True, 
-            'port_rj45': False
-        } # <--- Testing purposes
-    while True:
+        while True:
         factor_codes = input('\nhow many factor codes are there?')
         if factor_codes == '2':
             while True:
@@ -82,5 +76,11 @@ def combination_locks():
             
         break
 
-
+bomb_data = {
+    'bat_total': 3, 
+    'serial': '4L5Q5F', 
+    'port_rca': True, 
+    'port_rj45': False
+} # <--- Testing purposes
+combination_locks(bomb_data)
     
