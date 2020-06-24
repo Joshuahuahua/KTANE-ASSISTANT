@@ -24,12 +24,6 @@ def wires():
         wire_list.append(request.form['wire4'])
         wire_list.append(request.form['wire5'])
         wire_list.append(request.form['wire6'])
-        print(wire_list)
-        for i, x in enumerate(wire_list):
-            if x == '':
-                del wire_list[i]
-        wires(bomb_data, wire_list)
-        print(wire_list)
 
 
         return render_template('wires.html', wire=simple_wires(bomb_data, wire_list))

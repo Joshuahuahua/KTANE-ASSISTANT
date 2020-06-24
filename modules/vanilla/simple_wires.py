@@ -1,5 +1,22 @@
 def simple_wires(bomb_data, wire_list):
     
+    # This looks ugly cause it is. A for loop would randomly skip values making it inconsistent.
+    if wire_list[5] == '':
+        del wire_list[5]
+    if wire_list[4] == '':
+        del wire_list[4]
+    if wire_list[3] == '':
+        del wire_list[3]
+    if wire_list[2] == '':
+        del wire_list[2]
+    if wire_list[1] == '':
+        del wire_list[1]
+    if wire_list[0] == '':
+        del wire_list[0]
+
+    if len(wire_list) < 3:
+        return 'Error'
+
     if len(wire_list) == 3:
         if 'red' not in wire_list:
             return str(2)
