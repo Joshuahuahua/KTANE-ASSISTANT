@@ -1,4 +1,4 @@
-def complex_wires(bomb_data):
+def complex_wires(bomb_data, perams):
     wire_always = ['1010', '0000', '0010']
     wire_even = ['1000', '0100', '1100', '1101']
     wire_parallel = ['1110', '0101', '0111']
@@ -6,7 +6,8 @@ def complex_wires(bomb_data):
     
     while True:
         wire = [0,0,0,0]
-        perams = input('Usage <trait1, trait2...>: ').lower().replace(', ', ',').split(',')
+        #perams = input('Usage <trait1, trait2...>: ').lower().replace(', ', ',').split(',')
+        perams = perams.lower().replace(', ', ',').split(',')
         if perams[0] == 'x':
             return
         if 'red' in perams:

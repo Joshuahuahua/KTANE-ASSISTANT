@@ -1,5 +1,6 @@
-def button(bomb_data):
-    button_raw = input('Usage <colour, word>: ').lower().replace(', ', ',').split(',')
+def button(bomb_data, button_raw, stripe):
+    #button_raw = input('Usage <colour, word>: ').lower().replace(', ', ',').split(',')
+    button_raw = button_raw.lower().replace(', ', ',').split(',')
     if len(button_raw) != 2:
         print('\n--ERROR--\nExpected 2 items!')
         return
@@ -11,7 +12,8 @@ def button(bomb_data):
         print('\nPRESS and then immediately release the button!')
     else:
         print('\nHOLD the button!\n')
-        stripe = input('What colour is the stripe: ').lower()
+        #stripe = input('What colour is the stripe: ').lower()
+        stripe = stripe.lower()
         if stripe == 'blue':
             print('\nRelease button when countdown contains a 4')
         elif stripe == 'yellow': 

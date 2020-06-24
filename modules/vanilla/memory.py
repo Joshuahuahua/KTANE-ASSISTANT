@@ -1,4 +1,4 @@
-def memory():
+def memory(memory_raw):
     stored_memory = []
     #1 1234
     data = [
@@ -37,7 +37,8 @@ def memory():
     for i in range(0, 5):
         while True:
             try:
-                memory_raw = int(input('Input main number followed by 4 smaller numbers: '))
+                #memory_raw = int(input('Input main number followed by 4 smaller numbers: '))
+                memory_raw = int(memory_raw)
                 if len(memory_raw) != 5:
                     raise
                 break

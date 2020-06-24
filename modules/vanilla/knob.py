@@ -1,4 +1,4 @@
-def knob():
+def knob(knob):
     dic = [
     {'count': '0', 'dir_word': 'left', 'dir_num': 4},
     {'count': '1', 'dir_word': 'left', 'dir_num': 4},
@@ -9,7 +9,8 @@ def knob():
     ]
 
     try:
-        knob = input('Number of lit LED\'s on left\nUsage <"UP" direction><1-5/5U>: ').upper().replace(', ', ',').split(',')
+        #knob = input('Number of lit LED\'s on left\nUsage <"UP" direction><1-5/5U>: ').upper().replace(', ', ',').split(',')
+        knob = knob.upper().replace(', ', ',').split(',')
         if len(knob) != 2:
             print('\n--ERROR--\nExpected 2 items!')
             return

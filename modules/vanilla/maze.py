@@ -1,4 +1,4 @@
-def maze():
+def maze(maze_identifier, maze_info):
     maze_dic = [
         [
             ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
@@ -170,7 +170,8 @@ def maze():
 
 
 
-    maze_identifier = input('What are the coords for the 2 dots.\nUsage <XY, <XY>: ').replace(', ', ',').split(',')
+    #maze_identifier = input('What are the coords for the 2 dots.\nUsage <XY, <XY>: ').replace(', ', ',').split(',')
+    maze_identifier = maze_identifier.replace(', ', ',').split(',')
     if len(maze_identifier) != 2:
         print('\n--ERROR--\nExpected 2 items!')
         return
@@ -185,7 +186,8 @@ def maze():
         return
     
     #Set start and end points
-    maze_info = input('What are the triangle and square\'s coords.\nUsage <triXY, <squXY>: ').replace(', ', ',').split(',')
+    #maze_info = input('What are the triangle and square\'s coords.\nUsage <triXY, <squXY>: ').replace(', ', ',').split(',')
+    maze_info = maze_info.replace(', ', ',').split(',')
     if len(maze_info) != 2:
         print('\n--ERROR--\nExpected 2 items!')
         return
