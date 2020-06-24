@@ -1,4 +1,4 @@
-def strikes():
+def strikes(strikes):
     while True:
         try:
             #strikes = int(input('Enter number of strikes (0, 1 or 2): ').lower())
@@ -9,6 +9,7 @@ def strikes():
                 continue
         except ValueError:
             pass
+    return placeholder
 
 
 
@@ -30,7 +31,7 @@ def simon_says(bomb_data, strikes, user_input):
 
     memory = []
 
-    strikes()
+    strikes(strikes)
 
     while True:
         try:
@@ -40,7 +41,7 @@ def simon_says(bomb_data, strikes, user_input):
                 break
             elif user_input == 's' or user_input == 'strikes':
                 memory = []
-                strikes()
+                strikes(strikes)
             elif bomb_data['serial_vowel']:
                 memory.append(vowel[user_input][strikes])
                 print('------- INPUT IN FOLLOWING ORDER -------')
