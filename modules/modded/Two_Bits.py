@@ -40,9 +40,6 @@ def two_bits(bomb_data):
         'z': '26'
     }
 
-
-    
-    
     for x in bomb_data['serial'].lower():
         if x.isalpha():
             first_letter_pos = alphabet_numeric[x]
@@ -92,6 +89,13 @@ def two_bits(bomb_data):
         except:
             print('Invalid key')
         break
+
+
+
+
+
+
+
 
 bomb_data = {
     'bat_total': 3, 

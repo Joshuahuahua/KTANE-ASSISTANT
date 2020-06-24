@@ -1,4 +1,5 @@
 def switch_mod():
+    
     avoid_switches = [
     ['D','D','U','D','D'],
     ['D','U','D','U','U'],
@@ -8,8 +9,7 @@ def switch_mod():
     ['U','U','D','D','D'],
     ['U','U','D','U','D'],
     ['U','U','U','D','D'],
-    ['U','U','U','U','D'],
-    ]
+    ['U','U','U','U','D']]
 
     switch= []
     while True:
