@@ -45,12 +45,14 @@ while True:
     neg1 = input('Is this value a negative (Y/N)?: ')
     if neg1 == 'Y':
         x = x * -1
+        break
     elif neg1 == 'N':
-        pass
+        break
     else:
         print("Invalid input")
         continue
     
+while True:
     value2 = input("Enter second characters: ")
     if value2 == ':)':
         y = 0
@@ -79,12 +81,12 @@ while True:
     neg2 = input('Is this value a negative (Y/N)?: ')
     if neg2 == 'Y':
         y = y * -1
+        break
     elif neg2 == 'N':
-        pass
+        break
     else:
         print('Invalid input')
         continue
 
-    result = x + y
-    print('Result:', result)
-    break
+result = x + y
+print('Result:', result)
