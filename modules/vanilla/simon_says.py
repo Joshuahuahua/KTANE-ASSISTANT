@@ -1,3 +1,17 @@
+def strikes():
+    while True:
+        try:
+            #strikes = int(input('Enter number of strikes (0, 1 or 2): ').lower())
+            strikes = int(strikes)
+            if strikes > -1 and strikes < 3:
+                break
+            else:
+                continue
+        except ValueError:
+            pass
+
+
+
 def simon_says(bomb_data, strikes, user_input):
     
     vowel = {
@@ -16,16 +30,7 @@ def simon_says(bomb_data, strikes, user_input):
 
     memory = []
 
-    while True:
-        try:
-            #strikes = int(input('Enter number of strikes (0, 1 or 2): ').lower())
-            strikes = int(strikes).lower()
-            if strikes > -1 and strikes < 3:
-                break
-            else:
-                continue
-        except ValueError:
-            pass
+    strikes()
 
     while True:
         try:
@@ -35,16 +40,7 @@ def simon_says(bomb_data, strikes, user_input):
                 break
             elif user_input == 's' or user_input == 'strikes':
                 memory = []
-                while True:
-                        try:
-                            #strikes = int(input('Enter number of strikes (0, 1 or 2): ').lower())
-                            strikes = int(strikes).lower()
-                            if strikes > -1 and strikes < 3:
-                                break
-                            else:
-                                continue
-                        except ValueError:
-                            pass 
+                strikes()
             elif bomb_data['serial_vowel']:
                 memory.append(vowel[user_input][strikes])
                 print('------- INPUT IN FOLLOWING ORDER -------')
