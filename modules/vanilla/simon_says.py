@@ -54,9 +54,3 @@ def simon_says(bomb_data):
                     print(color)
         except KeyError:
             pass
-
-bomb_data = {
-        'serial_vowel': False
-    }
-
-simon_says(bomb_data)
