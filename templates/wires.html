@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>yo</title>
+        <link rel="stylesheet" href="./static/css/bootstrap.css"/>
+        <link rel="stylesheet" href="./static/css/main.css"/>
+    </head>
+    <body style=padding:10px;>
+        <h1>Template</h1>
+        <form method="POST" action="/wires">
+            <div class="form-group">
+            <ul class="list-unstyled">
+                <li><input type="text" name="wire1"></li>
+                <li><input type="text" name="wire2"></li>
+                <li><input type="text" name="wire3"></li>
+                <li><input type="text" name="wire4"></li>
+                <li><input type="text" name="wire5"></li>
+                <li><input type="text" name="wire6"></li>
+            </ul>
+                    
+            </div>
+            <input class="btn btn-primary" type="submit" value="submit">
+            <br>
+        </form>
+        <h1>Cut wire number {{ wire }}.</h1>
+    </body>
+</html>
