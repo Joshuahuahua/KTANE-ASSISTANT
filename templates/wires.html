@@ -5,22 +5,65 @@
         <link rel="stylesheet" href="./static/css/main.css"/>
     </head>
     <body style=padding:10px;>
-        <h1>Template</h1>
+        <h2>Simple Wires</h2>
+        <p>Input wires from the module top to bottom.<br>Minimum three wires.</p>
         <form method="POST" action="/wires">
             <div class="form-group">
             <ul class="list-unstyled">
-                <li><input type="text" name="wire1"></li>
-                <li><input type="text" name="wire2"></li>
-                <li><input type="text" name="wire3"></li>
-                <li><input type="text" name="wire4"></li>
-                <li><input type="text" name="wire5"></li>
-                <li><input type="text" name="wire6"></li>
+                <li><select id="wire1" name="wire1">
+                    <option value="">-</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select></li>
+                <li><select id="wire2" name="wire2">
+                    <option value="">-</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select></li>
+                <li><select id="wire3" name="wire3">
+                    <option value="">-</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select></li>
+                <li><select id="wire4" name="wire4">
+                    <option value="">-</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select></li>
+                <li><select id="wire5" name="wire5">
+                    <option value="">-</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select></li>
+                <li><select id="wire6" name="wire6">
+                    <option value="">-</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                  </select></li>
             </ul>
                     
             </div>
-            <input class="btn btn-primary" type="submit" value="submit">
+            <input class="btn btn-primary" type="submit" value="Submit">
             <br>
         </form>
-        <h1>Cut wire number {{ wire }}.</h1>
+        <p>Cut wire number {{ wire }}.</p>
     </body>
 </html>
