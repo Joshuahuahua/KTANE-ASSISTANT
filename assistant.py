@@ -12,8 +12,8 @@ from modules.vanilla.whos_on_first import whos_on_first
 from modules.vanilla.morse import morse
 from modules.vanilla.maze import maze
 ###################################### MODDED ######################################
+from modules.modded.two_bits import two_bits
 '''
-from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
@@ -171,6 +171,10 @@ while True:
         maze()
         
 ###################################### MODDED ######################################
+
+    elif user_input == 'two bits':
+        two_bits(bomb_data)
+
     elif user_input == 'help':
         print('\n------OPTIONS------')
         print('Simple Wires, Button, Symbols, Memory')
@@ -183,11 +187,7 @@ while True:
     else:
         print('Invalid Choice!')
 
-
-
     '''
-    elif user_input == 'BLANK':
-        BLANK()
     elif user_input == 'BLANK':
         BLANK()
     elif user_input == 'BLANK':
