@@ -13,9 +13,9 @@ from modules.vanilla.morse import morse
 from modules.vanilla.maze import maze
 ###################################### MODDED ######################################
 from modules.modded.two_bits import two_bits
+from modules.modded.word_scramble_anagram import word_scramble_anagram
+from modules.modded.combination_locks import combination_locks
 '''
-from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
@@ -129,6 +129,7 @@ def init():
         'port_rj45': port_rj45,
         'port_serial': port_serial,
         'port_rca': port_rca,
+        'modules_total': 101,
         'modules_solved': 0,
     }
 
@@ -178,6 +179,11 @@ while True:
 
     elif user_input == 'two bits':
         two_bits(bomb_data)
+    elif user_input == 'combination lock' or user_input == 'combination locks':
+        combination_locks(bomb_data)
+    elif user_input == 'word scramble' or user_input == 'anagram':
+        word_scramble_anagram()
+
 
     elif user_input == 'help':
         print('\n------OPTIONS------')
