@@ -1,3 +1,4 @@
+#made by Matthew Alphonso
 def switch_mod():
     
     avoid_switches = [
@@ -171,4 +172,4 @@ def switch_mod():
                     else:
                         print('move 5th switch')   
         break
-switch_mod()
+
