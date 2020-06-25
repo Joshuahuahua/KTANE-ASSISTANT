@@ -31,7 +31,7 @@ from modules.modded.BLANK import BLANK
 def init():
     ind_lit = []
     ind_unlit = []
-    print('---Setup Initializing---')
+    print('-----Setup Initializing-----')
     while True:
         try:
             bat_aa = int(input('Number of idividual AA batteries: '))
@@ -129,9 +129,10 @@ def init():
         'port_rj45': port_rj45,
         'port_serial': port_serial,
         'port_rca': port_rca,
+        'modules_solved': 0,
     }
 
-    print('---\nSetup Complete\n---')
+    print('\n-----Setup Complete-----')
     return bomb_data
 
 bomb_data = init()
@@ -139,12 +140,15 @@ bomb_data = init()
 while True:
     print('\n------------------------------------------')
     print('Keep Talking and Nobody Explodes Assistant')
+    print('            Modules Solved: ' + str(bomb_data['modules_solved']))
     print('------------------------------------------\n')
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
     
 ###################################### VANILLA ######################################
 
+    if user_input == 'solved':
+        bomb_data['modules_solved']+=1
     if user_input == 'simple wires' or user_input == 'simple_wires':
         simple_wires(bomb_data)
     elif user_input == 'button':
