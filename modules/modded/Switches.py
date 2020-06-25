@@ -55,7 +55,7 @@ def switch_mod():
     
     while True:
         print('\n',switch)
-        move = input('Which switch to move: 1, 2, 3, 4, 5 :')
+        move = input('Which switch to move: 1, 2, 3, 4, 5, or finish:')
         if move == '1':
             if switch[0] == 'D':
                 switch[0] = 'U'
@@ -116,8 +116,11 @@ def switch_mod():
                     print('\nAVOID SWITCH') 
                     switch[4] = 'U'
         
+        elif move == 'finish':
+            print('\nFinished')
+            break
         else:
             print('\nInvalid input')
-            break
+            
 
 switch_mod()
