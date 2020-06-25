@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def simple_wires(bomb_data):
     
     wire_list = input('Please input wires, separated with a ",": ').lower().replace(', ', ',').split(',')

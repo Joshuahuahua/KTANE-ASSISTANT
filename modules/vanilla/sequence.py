@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def sequence():
     wire_sequence = [
         {'list': ['c', 'b', 'a', 'ac', 'b', 'ac', 'abc', 'ab', 'b'], 'colour': 'red', 'count': 0},

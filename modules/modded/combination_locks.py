@@ -1,4 +1,4 @@
-#made by Matthew Alphonso
+#Coded by Matthew Alphonso
 def combination_locks():
     while True:
     factor_codes = input('\nhow many factor codes are there?')

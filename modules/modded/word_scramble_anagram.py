@@ -1,4 +1,4 @@
-#made by Matthew Alphonso
+#Coded by Matthew Alphonso
 import json
 from itertools import permutations 
 

@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def simon_says(bomb_data):
     
     vowel = {

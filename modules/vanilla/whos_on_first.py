@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def whos_on_first():
 
     wof_big = [

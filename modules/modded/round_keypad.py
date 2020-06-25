@@ -1,4 +1,4 @@
-#made by Matthew Alphonso
+#Coded by Matthew Alphonso
 def round_keypad(input_symbol):
     symbols = [
         {'name': 'paddle', 'character': 'Ϙ', 'value': 1},

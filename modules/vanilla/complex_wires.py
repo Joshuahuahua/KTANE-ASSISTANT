@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def complex_wires(bomb_data):
     wire_always = ['1010', '0000', '0010']
     wire_even = ['1000', '0100', '1100', '1101']

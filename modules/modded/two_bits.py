@@ -1,4 +1,4 @@
-#made by Matthew Alphonso
+#Coded by Matthew Alphonso
 def two_bits(bomb_data):
     
     dic = {
