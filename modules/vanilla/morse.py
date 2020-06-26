@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def morse():
     morse_dic = [
         {'code': ['-...', '.'],           'word': 'BEATS', 'frequency': '3.600MHz'},

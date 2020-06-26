@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def maze():
     maze_dic = [
         [

@@ -1,4 +1,4 @@
-#emoji_math fucntion - Devvvv-WB work
+#Coded by Devvvv-WB work
 
 #Numbers:
 

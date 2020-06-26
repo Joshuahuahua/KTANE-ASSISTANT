@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def symbols():
     symbols_input = input('Usage <symbol1, symbol2, symbol3, symbol4>: ').lower().replace(', ', ',').replace('6', 'six').split(',')
     if len(symbols_input) != 4:

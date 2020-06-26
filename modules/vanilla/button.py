@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def button(bomb_data):
     button_raw = input('Usage <colour, word>: ').lower().replace(', ', ',').split(',')
     if len(button_raw) != 2:

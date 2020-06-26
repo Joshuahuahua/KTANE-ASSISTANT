@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def knob():
     dic = [
     {'count': '0', 'dir_word': 'left', 'dir_num': 4},

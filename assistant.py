@@ -13,9 +13,9 @@ from modules.vanilla.morse import morse
 from modules.vanilla.maze import maze
 ###################################### MODDED ######################################
 from modules.modded.two_bits import two_bits
+from modules.modded.word_scramble_anagram import word_scramble_anagram
+from modules.modded.combination_locks import combination_locks
 '''
-from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
@@ -31,7 +31,7 @@ from modules.modded.BLANK import BLANK
 def init():
     ind_lit = []
     ind_unlit = []
-    print('---Setup Initializing---')
+    print('-----Setup Initializing-----')
     while True:
         try:
             bat_aa = int(input('Number of idividual AA batteries: '))
@@ -129,9 +129,11 @@ def init():
         'port_rj45': port_rj45,
         'port_serial': port_serial,
         'port_rca': port_rca,
+        'modules_total': 101,
+        'modules_solved': 0,
     }
 
-    print('---\nSetup Complete\n---')
+    print('\n-----Setup Complete-----')
     return bomb_data
 
 bomb_data = init()
@@ -139,12 +141,15 @@ bomb_data = init()
 while True:
     print('\n------------------------------------------')
     print('Keep Talking and Nobody Explodes Assistant')
+    print('            Modules Solved: ' + str(bomb_data['modules_solved']))
     print('------------------------------------------\n')
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
     
 ###################################### VANILLA ######################################
 
+    if user_input == 'solved':
+        bomb_data['modules_solved']+=1
     if user_input == 'simple wires' or user_input == 'simple_wires':
         simple_wires(bomb_data)
     elif user_input == 'button':
@@ -174,6 +179,11 @@ while True:
 
     elif user_input == 'two bits':
         two_bits(bomb_data)
+    elif user_input == 'combination lock' or user_input == 'combination locks':
+        combination_locks(bomb_data)
+    elif user_input == 'word scramble' or user_input == 'anagram':
+        word_scramble_anagram()
+
 
     elif user_input == 'help':
         print('\n------OPTIONS------')

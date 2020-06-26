@@ -1,4 +1,4 @@
-#made by Matthew Alphonso
+#Coded by Matthew Alphonso
 def switch_mod():
     
     avoid_switches = [
