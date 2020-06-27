@@ -15,6 +15,7 @@ from modules.vanilla.maze import maze
 from modules.modded.two_bits import two_bits
 from modules.modded.word_scramble_anagram import word_scramble_anagram
 from modules.modded.combination_locks import combination_locks
+from modules.modded.emoji_math import emoji_math
 '''
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
@@ -183,6 +184,8 @@ while True:
         combination_locks(bomb_data)
     elif user_input == 'word scramble' or user_input == 'anagram':
         word_scramble_anagram()
+    elif user_input == 'emoji math':
+        emoji_math()
 
 
     elif user_input == 'help':
@@ -198,8 +201,6 @@ while True:
         print('Invalid Choice!')
 
     '''
-    elif user_input == 'BLANK':
-        BLANK()
     elif user_input == 'BLANK':
         BLANK()
     elif user_input == 'BLANK':

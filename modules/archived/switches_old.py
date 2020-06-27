@@ -1,5 +1,5 @@
-#Coded by Joshuahuahua
-def switches():
+#Coded by Matthew Alphonso
+def switch_mod():
     
     avoid_switches = [
     ['D','D','U','D','D'],
@@ -15,32 +15,86 @@ def switches():
     switch= []
     light = []
     #position of switches 
+    while True:
+        user1 = input('\nposition of 1st switch: ').upper()
+        if user1 == 'D' or user1 == 'U':
+            switch.append(user1)
+            break
+        else:
+            print('Type D or U')
+
+    while True:
+        user2 = input('\nposition of 2nd switch: ').upper()
+        if user2 == 'D' or user2 == 'U':
+            switch.append(user2)
+            break
+        else:
+            print('Type D or U')
+
+    while True:
+        user3 = input('\nposition of 3rd switch: ').upper()
+        if user3 == 'D' or user3 == 'U':
+            switch.append(user3)
+            break
+        else:
+            print('Type D or U')
+
+    while True:
+        user4 = input('\nposition of 4th switch: ').upper()
+        if user4 == 'D' or user4 == 'U':
+            switch.append(user4)
+            break
+        else:
+            print('Type D or U')
+
+    while True:   
+        user5 = input('\nposition of 5th switch: ').upper()
+        if user5 == 'D' or user5 == 'U':
+            switch.append(user5)
+            break
+        else:
+            print('Type D or U')
     
+    #position of lights 
+    while True:   
+        light1 = input('\nposition of 1st light: ').upper()
+        if light1 == 'D' or light1 == 'U':
+            light.append(light1)
+            break
+        else:
+            print('Type D or U')
+    while True:   
+        light2 = input('\nposition of 2nd light: ').upper()
+        if light2 == 'D' or light2 == 'U':
+            light.append(light2)
+            break
+        else:
+            print('Type D or U')
     
-    switches_input = input('Usage <switch1pos, switch2pos, etc> (U/D): ').lower().replace(', ', ',').split(',')
-    if len(switches_input) != 6:
-        print('\n--ERROR--\nExpected 6 items!')
-        return
-    switches_input = input('Usage <light1pos, switch2pos, etc> (U/D): ').lower().replace(', ', ',').split(',')
-    if len(switches_input) != 6:
-        print('\n--ERROR--\nExpected 6 items!')
-        return
+    while True:   
+        light3 = input('\nposition of 3rd light: ').upper()
+        if light3 == 'D' or light3 == 'U':
+            light.append(light3)
+            break
+        else:
+            print('Type D or U')
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while True:   
+        light4 = input('\nposition of 4th light: ').upper()
+        if light4 == 'D' or light4 == 'U':
+            light.append(light4)
+            break
+        else:
+            print('Type D or U')
     
+    while True:   
+        light5 = input('\nposition of 5th light: ').upper()
+        if light5 == 'D' or light5 == 'U':
+            light.append(light5)
+            break
+        else:
+            print('Type D or U')
+
     while True:
         for x in switch:
             if light[0] != switch[0]:
@@ -119,4 +173,3 @@ def switches():
                         print('move 5th switch')   
         break
 
----
