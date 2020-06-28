@@ -12,35 +12,30 @@ def switches():
     ['U','U','U','D','D'],
     ['U','U','U','U','D']]
 
-    switch= []
-    light = []
-    #position of switches 
-    
-    
     switches_input = input('Usage <switch1pos, switch2pos, etc> (U/D): ').lower().replace(', ', ',').split(',')
     if len(switches_input) != 6:
         print('\n--ERROR--\nExpected 6 items!')
-        return
-    switches_input = input('Usage <light1pos, switch2pos, etc> (U/D): ').lower().replace(', ', ',').split(',')
+        return  
+    light_input = input('Usage <light1pos, light2pos, etc> (U/D): ').lower().replace(', ', ',').split(',')
     if len(switches_input) != 6:
         print('\n--ERROR--\nExpected 6 items!')
         return
+
+    for i, item in enumerate(switches_input):
+        if item == 'u': switches_input[i] = True
+        elif item == 'd': switches_input[i] = False
+    for i, item in enumerate(light_input):
+        if item == 'u': light_input[i] = True
+        elif item == 'd': light_input[i] = False
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
+    print(switches_input)
+    print(light_input)
+
+switches()
+
+'''
+
     while True:
         for x in switch:
             if light[0] != switch[0]:
@@ -119,4 +114,4 @@ def switches():
                         print('move 5th switch')   
         break
 
----
+'''
