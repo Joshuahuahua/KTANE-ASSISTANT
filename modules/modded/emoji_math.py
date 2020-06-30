@@ -24,5 +24,3 @@ def emoji_math():
         print('The answer is:', result)
     except:
         print('\n---ERROR---\nInvalid Input')
-
-emoji_math()
