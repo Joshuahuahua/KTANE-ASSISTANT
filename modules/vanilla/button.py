@@ -5,10 +5,8 @@ def button(bomb_data):
         print('\n--ERROR--\nExpected 2 items!')
         return
     
-    colour = button_raw[0]
-    word = button_raw[1]
 
-    if button_raw == ['red', 'hold'] or word == 'detonate' and bomb_data['bat_total'] > 1 or 'FRK' in bomb_data['ind_LIT'] and bomb_data['bat_total'] > 2:
+    if button_raw == ['red', 'hold'] or button_raw[1] == 'detonate' and bomb_data['bat_total'] > 1 or 'FRK' in bomb_data['ind_LIT'] and bomb_data['bat_total'] > 2:
         print('\nPRESS and then immediately release the button!')
     else:
         print('\nHOLD the button!\n')
