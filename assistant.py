@@ -199,28 +199,3 @@ while True:
         break
     else:
         print('Invalid Choice!')
-
-    '''
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    elif user_input == 'BLANK':
-        BLANK()
-    '''
