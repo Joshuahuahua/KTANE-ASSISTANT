@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">Keep Talking and Nobody Explodes Assistant (CLI)</h1>
-<p align="center">A script to make lazy people lazier</p>
+<p align="center">"Do you want to explode?" - Dr Nefario </p>
 
 ## Contents
 - [Introduction](#introduction)
@@ -11,8 +11,9 @@
 - [Installation](#installation)
 
 ## Introduction
-placeholder text
-
+This is a CLI KTANE bomb defuser, made in python3.  
+The goal is to code a program that can be used to defuse the [Centurion](https://steamcommunity.com/sharedfiles/filedetails/?id=952828429)  
+Currently the master branch is only compatable with the vanilla modules. The only 'needy' module supported is the 'knobs' module.
 
 ## Requirements
 - Python 3
