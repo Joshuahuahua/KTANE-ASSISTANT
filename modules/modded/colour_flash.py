@@ -13,35 +13,60 @@ def colour_flash(bomb_data):
     '''
 
 
-    word_input = ['red', 'white', 'magenta', 'magenta', 'blue', 'green', 'white', 'white']
-    colour_input = ['white', 'magenta', 'blue', 'blue', 'green', 'yellow', 'magenta', 'red']
+    word_input = ['magenta', 'green', 'blue', 'yellow', 'yellow', 'yellow', 'yellow', 'red']
+    colour_input = ['magenta', 'magenta', 'magenta', 'blue', 'magenta', 'magenta', 'yellow', 'yellow']
 
-    print('Press word:', colour_flash_answer(word_input, colour_input))
+    result = colour_flash_answer(word_input, colour_input)
+    print('Press', result[0].upper(), 'on word', result[1]+1)
     
     
     
-    def colour_flash_answer(word_input, colour_input)
-        if colour_input[-1] == 'red':
-            green_count = 0
-            for i, x in enumerate(word_input):
+def colour_flash_answer(word_input, colour_input):
+    if colour_input[-1] == 'red':
+        green_count = 0
+        if word_input.count('green') > 2:
+            for i in range(0,len(word_input)):
                 if word_input[i] == 'green' or colour_input[i] == 'green':
                     green_count+=1
                     if green_count == 3:
-                        return i
-            if word_input.count('blue') == 1:
-                
-
-
-        elif colour_input[-1] == 'yellow':
-            pass
-        elif colour_input[-1] == 'green':
-            pass
-        elif colour_input[-1] == 'blue':
-            pass
-        elif colour_input[-1] == 'magenta':
-            pass
+                        return ['yes', i]
+        elif word_input.count('blue') == 1:
+            return ['no', word_input.index('magenta')]
         else:
-            pass
+            word_input.reverse()
+            colour_input.reverse()
+            for i in range(0,len(word_input)):
+                if word_input[i] == 'white' or colour_input[i] == 'white':
+                    return ['yes', len(word_input)-i-1]
+                
+    elif colour_input[-1] == 'yellow':
+        for i in range(0,len(word_input)):
+            if word_input[i] == 'blue' and colour_input[i] == 'green':
+                for i in range(0,len(word_input)):
+                    if word_input[i] == 'green' or colour_input[i] == 'green':
+                        return ['yes', i]
+        for i in range(0,len(word_input)):
+            if word_input[i] == 'white' and (colour_input[i] == 'white' or colour_input[i] == 'red'):
+                dif_count = 0
+                for i in range(0,len(word_input)):
+                    if word_input[i] != colour_input[i]:
+                        dif_count+=1
+                    if dif_count == 2:
+                        return ['yes', i]
+        magenta_count = 0
+        for i in range(0,len(word_input)):
+            if word_input[i] == 'magenta' or colour_input[i] == 'magenta':
+                magenta_count+=1
+        return ['no', magenta_count-1]
+
+    elif colour_input[-1] == 'green':
+        pass
+    elif colour_input[-1] == 'blue':
+        pass
+    elif colour_input[-1] == 'magenta':
+        pass
+    else:
+        pass
 
 
 
