@@ -57,12 +57,42 @@ def colour_flash_answer(word_input, colour_input):
         for i in range(0,len(word_input)):
             if word_input[i] == 'magenta' or colour_input[i] == 'magenta':
                 magenta_count+=1
-        return ['no', magenta_count-1]
+        return ['no', magenta_count-1] # -1 because its +1 at the top
 
     elif colour_input[-1] == 'green':
-        pass
+        for i in range(0,len(word_input)):
+            if i != 0:
+                if word_input[i-1] == word_input[i] and colour_input[i-1] != colour_input[i] :
+                     return 5-1 # -1 because its +1 at the top
+        for i in range(0,len(word_input)):
+            if word_input.count('magenta') > 2:
+                for i in range(0,len(word_input)):
+                    if word_input[i] == 'yellow' or colour_input[i] == 'yellow':
+                        return ['no', i]
+        for i in range(0,len(word_input)):
+            if word_input[i] == colour_input[i]:
+                return ['yes', i]
+        
     elif colour_input[-1] == 'blue':
-        pass
+        dif_count = 0
+        for i in range(0,len(word_input)):
+            if word_input[i] != colour_input[i]:
+                dif_count+=1
+            if dif_count == 1:
+                pos = i
+            if dif_count > 2:
+                return ['yes', pos]
+        for i in range(0,len(word_input)):
+            if (word_input[i] == 'red' and colour_input[i] == 'yellow') or (word_input[i] == 'yellow' and colour_input[i] == 'white'):
+                if word_input[i] == 'white' and colour_input[i] == 'red':
+                    return ['no', i]
+        for i in range(0,len(word_input)):
+            word_input.reverse()
+            colour_input.reverse()
+            for i in range(0,len(word_input)):
+                if word_input[i] == 'green' or colour_input[i] == 'green':
+                    return ['yes', len(word_input)-i-1]
+
     elif colour_input[-1] == 'magenta':
         pass
     else:
