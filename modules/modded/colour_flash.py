@@ -1,6 +1,5 @@
 def colour_flash(bomb_data):
     colour_dic = ['red', 'yellow', 'green', 'blue', 'magenta', 'white']
-    '''
     word_input = input('Usage <word1, word2, etc>: ').lower().replace(', ', ',').split(',')
     colour_input = input('Usage <colour1>, colour2, etc>: ').lower().replace(', ', ',').split(',')
 
@@ -10,15 +9,12 @@ def colour_flash(bomb_data):
     if len(word_input) != 8 or len(colour_input) != 8:
         print('\n--ERROR--\nExpected 8 items!')
         return
-    '''
-
-
-    word_input = ['magenta', 'green', 'blue', 'yellow', 'yellow', 'yellow', 'yellow', 'red']
-    colour_input = ['magenta', 'magenta', 'magenta', 'blue', 'magenta', 'magenta', 'yellow', 'yellow']
 
     result = colour_flash_answer(word_input, colour_input)
-    print('Press', result[0].upper(), 'on word', result[1]+1)
-    
+    if len(result) == 2:
+        print('Press', result[0].upper(), 'on word', result[1]+1)
+    else:
+        print('Print', result[0].upper())
     
     
 def colour_flash_answer(word_input, colour_input):
@@ -98,41 +94,31 @@ def colour_flash_answer(word_input, colour_input):
             if i != 0:
                 if word_input[i] != word_input[i-1] and colour_input[i] == colour_input[i-1]:
                     return 3-1 # -1 because its +1 at the top
+        for i in range(0,len(word_input)):
+            if word_input.count('yellow') > colour_input.count('blue'):
+                word_input.reverse()
+                for i in range(0,len(word_input)):
+                    if word_input[i] == 'yellow':
+                        return ['no', len(word_input)-i-1]
+        for i in range(0,len(word_input)):
+            if colour_input[i] == word_input[6]:
+                return ['no', i]
+    
     else:
-        pass
-
-
-
-
-
-
-
-
+        if colour_input[2] == word_input[3] or colour_input[2] == word_input[4]:
+            for i in range(0,len(word_input)):
+                if word_input[i] == 'blue' or colour_input[i] == 'blue':
+                    return ['no', i]
+        for i in range(0,len(word_input)):
+            if word_input[i] == 'yellow' and colour_input[i] == 'red':
+                colour_input.reverse()
+                for i in range(0,len(word_input)):
+                    if colour_input[i] == 'blue':
+                        return ['yes', len(word_input)-i-1]
+        return ['no']
 
 def convert(input_raw, colour_dic):
     for i, input_sub in enumerate(input_raw):
         for colour in colour_dic:
             if input_sub[0] == colour[0]:
                 input_raw[i] = colour
-    
-
-
-bomb_data = {
-    'bat_AA': 0,
-    'bat_B': 0,
-    'bat_total': 0,
-    'ind_LIT': [],
-    'ind_UNLIT': [],
-    'serial': 'AAAA',
-    'serial_odd': 0,
-    'serial_vowel': 0,
-    'port_parallel': 0,
-    'port_dvi': False,
-    'port_ps2': False,
-    'port_rj45': False,
-    'port_serial': False,
-    'port_rca': False,
-    'modules_total': 101,
-    'modules_solved': 0,
-}
-colour_flash(bomb_data)
