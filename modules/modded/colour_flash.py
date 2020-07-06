@@ -94,7 +94,10 @@ def colour_flash_answer(word_input, colour_input):
                     return ['yes', len(word_input)-i-1]
 
     elif colour_input[-1] == 'magenta':
-        pass
+        for i in range(0,len(word_input)):
+            if i != 0:
+                if word_input[i] != word_input[i-1] and colour_input[i] == colour_input[i-1]:
+                    return 3-1 # -1 because its +1 at the top
     else:
         pass
 
