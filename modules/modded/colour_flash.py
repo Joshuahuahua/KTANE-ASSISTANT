@@ -1,4 +1,4 @@
-def colour_flash(bomb_data):
+def colour_flash():
     colour_dic = ['red', 'yellow', 'green', 'blue', 'magenta', 'white']
     word_input = input('Usage <word1, word2, etc>: ').lower().replace(', ', ',').split(',')
     colour_input = input('Usage <colour1>, colour2, etc>: ').lower().replace(', ', ',').split(',')
@@ -19,8 +19,8 @@ def colour_flash(bomb_data):
     
 def colour_flash_answer(word_input, colour_input):
     if colour_input[-1] == 'red':
-        green_count = 0
         if word_input.count('green') > 2:
+            green_count = 0
             for i in range(0,len(word_input)):
                 if word_input[i] == 'green' or colour_input[i] == 'green':
                     green_count+=1
