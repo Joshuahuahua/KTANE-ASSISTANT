@@ -12,21 +12,20 @@ from modules.vanilla.whos_on_first import whos_on_first
 from modules.vanilla.morse import morse
 from modules.vanilla.maze import maze
 ###################################### MODDED ######################################
-from modules.modded.two_bits import two_bits
-from modules.modded.word_scramble_anagram import word_scramble_anagram
+from modules.modded.colour_flash import colour_flash
 from modules.modded.combination_locks import combination_locks
 from modules.modded.emoji_math import emoji_math
+#from modules.modded.BLANK import BLANK
+#from modules.modded.BLANK import BLANK
+#from modules.modded.BLANK import BLANK
+from modules.modded.switches import switches
+from modules.modded.two_bits import two_bits
+from modules.modded.word_scramble_anagram import word_scramble_anagram
 '''
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
-from modules.modded.BLANK import BLANK
 '''
-
 
 
 def init():
@@ -186,6 +185,10 @@ while True:
         word_scramble_anagram()
     elif user_input == 'emoji math':
         emoji_math()
+    elif user_input == 'colour flash':
+        colour_flash()
+    elif user_input == 'switches':
+        switches()
 
 
     elif user_input == 'help':
