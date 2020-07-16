@@ -16,7 +16,7 @@ from modules.modded.colour_flash import colour_flash
 from modules.modded.combination_locks import combination_locks
 from modules.modded.emoji_math import emoji_math
 #from modules.modded.BLANK import BLANK
-#from modules.modded.BLANK import BLANK
+from modules.modded.piano_keys import piano_keys
 #from modules.modded.BLANK import BLANK
 from modules.modded.switches import switches
 from modules.modded.two_bits import two_bits
@@ -52,15 +52,17 @@ def init():
             print('Please enter a whole number')
             pass
 
+    print('Enter the labels of the LIT indicators (Enter nothing to continue/skip)')
     while True:
-        user_input = input('Enter the labels of the LIT indicators (Enter nothing to continue/skip): ')
+        user_input = input('> ')
         if user_input == '':
             break
         else:
             ind_lit.append(user_input)
 
+    print('Enter the labels of the UNLIT indicators (Enter nothing to continue/skip)')
     while True:
-        user_input = input('Enter the labels of the UNLIT indicators (Enter nothing to continue/skip): ')
+        user_input = input('> ')
         if user_input == '':
             break
         else:
@@ -185,6 +187,8 @@ while True:
         word_scramble_anagram()
     elif user_input == 'emoji math':
         emoji_math()
+    elif user_input == 'piano keys':
+        piano_keys(bomb_data)
     elif user_input == 'colour flash':
         colour_flash()
     elif user_input == 'switches':
