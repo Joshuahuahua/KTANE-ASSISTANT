@@ -14,6 +14,7 @@ from modules.vanilla.maze import maze
 ###################################### MODDED ######################################
 from modules.modded.colour_flash import colour_flash
 from modules.modded.combination_locks import combination_locks
+from modules.modded.festive_piano_keys import festive_piano_keys
 from modules.modded.emoji_math import emoji_math
 #from modules.modded.BLANK import BLANK
 from modules.modded.piano_keys import piano_keys
@@ -187,6 +188,8 @@ while True:
         word_scramble_anagram()
     elif user_input == 'emoji math':
         emoji_math()
+    elif user_input == 'festive piano keys':
+        festive_piano_keys(bomb_data)
     elif user_input == 'piano keys':
         piano_keys(bomb_data)
     elif user_input == 'colour flash':
