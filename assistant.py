@@ -28,6 +28,15 @@ from modules.modded.BLANK import BLANK
 from modules.modded.BLANK import BLANK
 '''
 
+def assign_int(prompt):
+    while True:
+        try:
+            x = int(input(prompt))
+            return x
+        except ValueError:
+            print('Please enter a whole number')
+
+
 
 def init():
     ind_lit = []
@@ -45,14 +54,8 @@ def init():
             print('Please enter a whole number')
             pass
 
-    while True:
-        try:
-            bat_b = int(input('Number of big batteries: '))
-            break
-        except ValueError:
-            print('Please enter a whole number')
-            pass
-
+    bat_b = assign_int('Number of big batteries: ')
+    
     print('Enter the labels of the LIT indicators (Enter nothing to continue/skip)')
     while True:
         user_input = input('> ')
@@ -71,52 +74,24 @@ def init():
 
     while True:
         try:
-            serial = input('Serial number: ').upper()
-            serial_odd = True
-            if (int(serial[-1]) % 2) == 0:
-                serial_odd = False
+            serial_odd = False if int(serial[-1]) %2 == 0 else = True
+            serial_vowel = True if any(x in serial for x in ['A', 'E', 'I', 'O', 'U']) else = False
             break
         except:
             print('---ERROR---\nPlease input a valid serial number!')
 
-    vowels = set('AEIOU')
-    serial_vowel = False
-    for vowel in vowels:
-        if vowel in serial:
-            serial_vowel = True
-
-    if input('Is there a parallel port? (Y/N): ').lower() == 'y':
-        port_parallel = True
-    else:
-        port_parallel = False
+    port_parallel = assign_int('How many parallel ports are there?: ')
+       
+    port_dvi = assign_int('How many DVI ports are there?: ')
+       
+    port_ps2 = assign_int('How many PS2 ports are there?: ')
+       
+    port_rj45 = assign_int('How many RJ45 ports are there?: ')
+       
+    port_serial = assign_int('How many Serial ports are there?: ')
+       
+    port_rca = assign_int('How many RCA ports are there?: ')
         
-    if input('Is there a DVI port? (Y/N): ').lower() == 'y':
-        port_dvi = True
-    else:
-        port_dvi = False
-        
-    if input('Is there a PS2 port? (Y/N): ').lower() == 'y':
-        port_ps2 = True
-    else:
-        port_ps2 = False
-        
-    if input('Is there a RJ45 port? (Y/N): ').lower() == 'y':
-        port_rj45 = True
-    else:
-        port_rj45 = False
-        
-    if input('Is there a Serial port? (Y/N): ').lower() == 'y':
-        port_serial = True
-    else:
-        port_serial = False
-        
-    if input('Is there a RCA port? (Y/N): ').lower() == 'y':
-        port_rca = True
-    else:
-        port_rca = False
-        
-
-
     bomb_data = {
         'bat_AA': bat_aa,
         'bat_B': bat_b,
@@ -132,6 +107,7 @@ def init():
         'port_rj45': port_rj45,
         'port_serial': port_serial,
         'port_rca': port_rca,
+        'port_total': port_parallel+port_dvi+port_ps2+port_rj45+port_serial+port_rca
         'modules_total': 101,
         'modules_solved': 0,
     }
