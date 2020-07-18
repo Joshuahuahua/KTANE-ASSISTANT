@@ -1,6 +1,29 @@
 ### test file ###
 
 
+a = 1
+b = 1
+c = 2
+x = 0
+y = 1
+z = 0
+
+test = sum([1 for num in [a,b,c,x,y,z] if num > 0])
+test = sum([1 for x in [bomb_data['port_parallel'],bomb_data['port_dvi'],bomb_data['port_ps2'],bomb_data['port_rj45'],bomb_data['port_serial'],bomb_data['port_rca']] if x > 0])
+
+
+
+
+
+#print(test)
+if test > 3:
+    print('yes')
+else:
+    print('no')
+
+
+
+'''
 
 bomb_data = {
     'bat_AA': 0,
@@ -28,7 +51,7 @@ if [bomb_data['port_parallel'], bomb_data['port_dvi'], bomb_data['port_ps2'], bo
 else:
     print('no')
 
-
+'''
 
 
 
