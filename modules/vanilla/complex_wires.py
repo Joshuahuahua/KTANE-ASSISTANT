@@ -24,7 +24,7 @@ def complex_wires(bomb_data):
             print('Cut the wire!\n')
         elif not bomb_data['serial_odd'] and wire in wire_even:
             print('Cut the wire!\n')
-        elif bomb_data['port_parallel'] and wire in wire_parallel:
+        elif bomb_data['port_parallel'] > 0 and wire in wire_parallel:
             print('Cut the wire!\n')
         elif bomb_data['bat_total'] > 1 and wire in wire_batteries:
             print('Cut the wire!\n')
