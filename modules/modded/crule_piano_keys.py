@@ -1,16 +1,45 @@
-def festive_piano_keys(bomb_data):
+def cruel_piano_keys(bomb_data):
     key_dic = [
-        {'condition': '', 'symbols': ['break'], 'required': 'SE>O', 'sequence': 'Eb F Eb C Ab F Eb'},
-        {'condition': 'OR', 'symbols': ['s', 'note'], 'required': 'SDUPE', 'sequence': 'C# B A F# G# A G# F#'},
-        {'condition': 'AND', 'symbols': ['mordent', 'pedal'], 'required': '', 'sequence': 'G A G E G A G E'},
-        {'condition': 'OR', 'symbols': ['up bow', 'down bow'], 'required': 'DifPort<3', 'sequence': 'Eb Eb Db Ab Eb Eb F Db'},
-        {'condition': '', 'symbols': ['accent'], 'required': 'IndVowel', 'sequence': 'B A G Eb D A B A G'},
-        {'condition': 'OR', 'symbols': ['rest', 'note'], 'required': 'AA>2', 'sequence': 'F# G A A D B A G E D'},
-        {'condition': 'AND', 'symbols': ['semibreve', 'breve'], 'required': '', 'sequence': 'G E F G C B C D C B A G'},
-        {'condition': 'OR', 'symbols': ['dim', 'accent', 'up bow'], 'required': 'S19', 'sequence': 'G G G G G G G Bb Eb F G'},
-        {'condition': 'OR', 'symbols': ['s', 'clef', 'break'], 'required': '', 'sequence': 'D D D C# C# C# B C# B F#'},
-        {'condition': 'NO', 'symbols': [''], 'required': '', 'sequence': 'Bb A Bb G '}]
+        {'condition': '', 'symbols': ['break'], 'required': 'SE>O', 'lookup': '', 'transformation': ['I', 'R']},
+        {'condition': 'OR', 'symbols': ['s', 'note'], 'required': 'SDUPE', 'lookup': '', 'transformation': ['T', 'minsRem']},
+        {'condition': 'AND', 'symbols': ['mordent', 'pedal'], 'required': '', 'lookup': '', 'transformation': ['I']},
+        {'condition': 'OR', 'symbols': ['up bow', 'down bow'], 'required': 'DifPort<3', 'lookup': '', 'transformation': ['R']},
+        {'condition': '', 'symbols': ['accent'], 'required': 'IndVowel', 'lookup': '', 'transformation': ['R', 'T', 3]},
+        {'condition': 'OR', 'symbols': ['rest', 'note'], 'required': 'AA>2', 'lookup': '', 'transformation': 'T', bomb_data['port_total']},
+        {'condition': 'AND', 'symbols': ['semibreve', 'breve'], 'required': '', 'lookup': '', 'transformation': 'I'},
+        {'condition': 'OR', 'symbols': ['dim', 'accent', 'up bow'], 'required': 'S19', 'lookup': '', 'transformation': 'R'},
+        {'condition': 'OR', 'symbols': ['s', 'clef', 'break'], 'required': '', 'lookup': '', 'transformation': 'P'},
+        {'condition': 'NO'}]
 
+    sequence_dic = [
+        ['F', 'D', 'F#', 'G#', 'C', 'B', 'A#', 'C#', 'G', 'E', 'D#', 'A'],
+        ['A#', 'A', 'C', 'E', 'C#', 'D', 'D#', 'G', 'B', 'F#', 'G#', 'F'],
+        ['F#', 'B', 'A', 'G', '#D', 'C', 'G', 'C#', 'F', 'D#', 'E', 'A#'],
+        ['E', 'D#', 'D', 'F#', 'F', 'A#', 'G#', 'C#', 'C', 'B', 'G', 'A'],
+        ['D', 'E', 'A', 'A#', 'C', 'B', 'C#', 'G#', 'F', 'F#', 'D#', 'G'],
+        ['C', 'D#', 'F#', 'D', 'F', 'C#', 'B', 'A', 'G', 'A#', 'E', 'G#'],
+        ['G#', 'C', 'A#', 'C#', 'E', 'G', 'B', 'D#', 'A', 'D', 'F', 'F#'],
+        ['E', 'A', 'C#', 'B', 'G', 'G#', 'A#', 'D#', 'F#', 'F', 'C', 'D'],
+        ['G#', 'D#', 'D', 'E', 'A#', 'C#', 'F#', 'G', 'F', 'A', 'C', 'B'],
+        ['D#', 'G#', 'C', 'B', 'D', 'C#', 'F#', 'A#', 'F', 'G', 'A', 'E']
+    ]
+
+    translate_dic = [
+        {'value': 1, 'note': 'C'},
+        {'value': 2, 'note': 'C#'},
+        {'value': 3, 'note': 'D'},
+        {'value': 4, 'note': 'D#'},
+        {'value': 5, 'note': 'E'},
+        {'value': 6, 'note': 'F'},
+        {'value': 7, 'note': 'F#'},
+        {'value': 8, 'note': 'G'},
+        {'value': 9, 'note': 'G#'},
+        {'value': 10, 'note': 'A'},
+        {'value': 11, 'note': 'A#'},
+        {'value': 12, 'note': 'B'}
+    ]
+    
+    
     symbols_input = input('Usage <symbol1, symbol2, symbol3>: ').lower().replace(', ', ',').split(',')
 
     for key in key_dic:
