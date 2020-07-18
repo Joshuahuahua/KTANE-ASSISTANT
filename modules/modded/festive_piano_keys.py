@@ -34,19 +34,11 @@ def festive_piano_keys(bomb_data):
             print('---ERROR---\nNo sequence found!')
 
 def furtherRequirements(required):
-    if required == '':
-        return True
-    elif required == 'SE>O' and len(list(x for x in bomb_data['serial'] if x.isdigit() and int(x) %2 == 0)) > len(list(x for x in bomb_data['serial'] if x.isdigit() and int(x) %2 != 0)):
-        return True
-    elif required == 'SDUPE' and len(set(bomb_data['serial'])) != len(bomb_data['serial']):
-        return True
-    elif required == 'DifPort<3' and [bomb_data['port_parallel'], bomb_data['port_dvi'], bomb_data['port_ps2'], bomb_data['port_rj45'], bomb_data['port_serial'], bomb_data['port_rca']].count(True) < 3:
-        return True
-    elif required == 'IndVowel' and any(x in str(bomb_data['ind_LIT']) for x in ['A', 'E', 'I', 'O', 'U']):
-        return True
-    elif required == 'AA>2' and bomb_data['bat_AA'] > 2:
-        return True
-    elif required == 'S19' and any(x in bomb_data['serial'] for x in ['1', '9']):
-        return True
-    else:
-        return False
+    return True if required == ''
+    return True if required == 'SE>O' and len(list(x for x in bomb_data['serial'] if x.isdigit() and int(x) %2 == 0)) > len(list(x for x in bomb_data['serial'] if x.isdigit() and int(x) %2 != 0))
+    return True if required == 'SDUPE' and len(set(bomb_data['serial'])) != len(bomb_data['serial'])
+    return True if required == 'DifPort<3' and [bomb_data['port_parallel'], bomb_data['port_dvi'], bomb_data['port_ps2'], bomb_data['port_rj45'], bomb_data['port_serial'], bomb_data['port_rca']].count(True) < 3
+    return True if required == 'IndVowel' and any(x in str(bomb_data['ind_LIT']) for x in ['A', 'E', 'I', 'O', 'U'])
+    return True if required == 'AA>2' and bomb_data['bat_AA'] > 2
+    return True if required == 'S19' and any(x in bomb_data['serial'] for x in ['1', '9'])
+    return False

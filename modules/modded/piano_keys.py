@@ -37,19 +37,11 @@ def piano_keys(bomb_data):
 
 
 def furtherRequirements(required):
-    if required == '':
-        return True
-    elif required == 'Even' and bomb_data['serial_odd'] == False:
-        return True
-    elif required == 'H2' and (bomb_data['bat_AA']/2) + bomb_data['bat_B'] == required[1:]:
-        return True
-    elif required == 'RCA' and bomb_data['port_rca'] == True:
-        return True
-    elif required == 'SND' and 'SND' in bomb_data['indicator_LIT']:
-        return True
-    elif required == 'B3' and bomb_data['bat_total'] > 2:
-        return True
-    elif required == 'S378' and any(x in bomb_data['serial'] for x in ['3', '7', '8']):
-        return True
-    else:
-        return False
+    return True if required == ''
+    return True if required == 'Even' and bomb_data['serial_odd'] == False
+    return True if required == 'H2' and (bomb_data['bat_AA']/2) + bomb_data['bat_B'] == required[1:]
+    return True if required == 'RCA' and bomb_data['port_rca'] == True
+    return True if required == 'SND' and 'SND' in bomb_data['indicator_LIT']
+    return True if required == 'B3' and bomb_data['bat_total'] > 2
+    return True if required == 'S378' and any(x in bomb_data['serial'] for x in ['3', '7', '8'])
+    return False
