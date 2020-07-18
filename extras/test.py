@@ -1,6 +1,26 @@
 ### test file ###
 
 
+
+
+
+
+x = ['FRK', 'BOB']
+y = ['TRN', 'IND']
+
+
+
+print(str(x+y))
+
+
+
+
+
+
+
+
+'''
+
 a = 1
 b = 1
 c = 2
@@ -8,10 +28,12 @@ x = 0
 y = 1
 z = 0
 
+print([a,b,c,x,y,z].sort())
+'''
+
+'''
 test = sum([1 for num in [a,b,c,x,y,z] if num > 0])
 test = sum([1 for x in [bomb_data['port_parallel'],bomb_data['port_dvi'],bomb_data['port_ps2'],bomb_data['port_rj45'],bomb_data['port_serial'],bomb_data['port_rca']] if x > 0])
-
-
 
 
 
@@ -22,6 +44,20 @@ else:
     print('no')
 
 
+'''
+
+
+'''
+test = 1
+print(int(str(test)[-1]))
+print(int(str(test)[-1])+1)
+
+test = 'aaaaa9j4j3j83'
+
+print(list(x for x in test if x.isdigit())[0])
+
+
+'''
 
 '''
 

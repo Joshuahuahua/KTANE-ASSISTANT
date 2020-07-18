@@ -74,8 +74,8 @@ def init():
 
     while True:
         try:
-            serial_odd = False if int(serial[-1]) %2 == 0 else = True
-            serial_vowel = True if any(x in serial for x in ['A', 'E', 'I', 'O', 'U']) else = False
+            serial_odd = False if int(serial[-1]) %2 == 0 else True
+            serial_vowel = True if any(x in serial for x in ['A', 'E', 'I', 'O', 'U']) else False
             break
         except:
             print('---ERROR---\nPlease input a valid serial number!')
@@ -92,6 +92,8 @@ def init():
        
     port_rca = assign_int('How many RCA ports are there?: ')
         
+    port_plate = assign_int('How many port plates are there?: ')
+    
     bomb_data = {
         'bat_AA': bat_aa,
         'bat_B': bat_b,
@@ -108,6 +110,8 @@ def init():
         'port_serial': port_serial,
         'port_rca': port_rca,
         'port_total': port_parallel+port_dvi+port_ps2+port_rj45+port_serial+port_rca
+        'port_plate': port_plate,
+        'strikes': 0
         'modules_total': 101,
         'modules_solved': 0,
     }
@@ -121,6 +125,7 @@ while True:
     print('\n------------------------------------------')
     print('Keep Talking and Nobody Explodes Assistant')
     print('            Modules Solved: ' + str(bomb_data['modules_solved']))
+    print('               Strikes: ' + str(bomb_data['strikes']))
     print('------------------------------------------\n')
 
     user_input = input('Enter a module (type "help" for options) > ').lower()
@@ -129,6 +134,8 @@ while True:
 
     if user_input == 'solved':
         bomb_data['modules_solved']+=1
+    if user_input[:8] == 'strikes ':
+        bomb_data['strikes'] = user_input[-1]
     if user_input == 'simple wires' or user_input == 'simple_wires':
         simple_wires(bomb_data)
     elif user_input == 'button':
