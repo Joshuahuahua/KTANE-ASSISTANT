@@ -1,27 +1,28 @@
 def cruel_piano_keys(bomb_data):
     key_dic = [
-        {'condition': '', 'symbols': ['break'], 'required': 'SE>O', 'lookup': '', 'transformation': ['I', 'R']},
-        {'condition': 'OR', 'symbols': ['s', 'note'], 'required': 'SDUPE', 'lookup': '', 'transformation': ['T', 'minsRem']},
-        {'condition': 'AND', 'symbols': ['mordent', 'pedal'], 'required': '', 'lookup': '', 'transformation': ['I']},
-        {'condition': 'OR', 'symbols': ['up bow', 'down bow'], 'required': 'DifPort<3', 'lookup': '', 'transformation': ['R']},
-        {'condition': '', 'symbols': ['accent'], 'required': 'IndVowel', 'lookup': '', 'transformation': ['R', 'T', 3]},
-        {'condition': 'OR', 'symbols': ['rest', 'note'], 'required': 'AA>2', 'lookup': '', 'transformation': 'T', bomb_data['port_total']},
-        {'condition': 'AND', 'symbols': ['semibreve', 'breve'], 'required': '', 'lookup': '', 'transformation': 'I'},
-        {'condition': 'OR', 'symbols': ['dim', 'accent', 'up bow'], 'required': 'S19', 'lookup': '', 'transformation': 'R'},
-        {'condition': 'OR', 'symbols': ['s', 'clef', 'break'], 'required': '', 'lookup': '', 'transformation': 'P'},
-        {'condition': 'NO'}]
+        {'condition': 'AND', 'symbols': ['breve', 'turn'], 'required': '2+ind', 'lookup': list(x for x in bomb_data['serial'] if x.isdigit())[0], 'transformation': ['I', 'R']},
+        {'condition': 'OR', 'symbols': ['sharp', 'double sharp'], 'required': 'empty plate', 'lookup': wrap((bomb_data['bat_AA']/2)+bomb_data['bat_B'], 0, 9), 'transformation': ['T', 'minsRem']},
+        {'condition': 'OR', 'symbols': ['fermata', 'down bow'], 'required': '2+samePort', 'lookup': int(str(bomb_data['modules_solved'])[-1]), 'transformation': ['I']},
+        {'condition': 'AND', 'symbols': ['clef', '8 rest'], 'required': '2+plate', 'lookup': wrap(9-len(bomb_data['ind_UNLIT']), 0, 9), 'transformation': ['R']},
+        {'condition': 'OR', 'symbols': ['cut time', 'common time'], 'required': 'Svowel', 'lookup': int(str(bomb_data['strikes'])[-1]), 'transformation': ['R', 'T', 3]},
+        {'condition': 'OR', 'symbols': ['natural', 'mordent'], 'required': 'batEven', 'lookup': 7 if bomb_data['port_dvi'] > 0 else 3, 'transformation': ['T', bomb_data['port_total']]},
+        {'condition': 'OR', 'symbols': ['flat', '4 rest'], 'required': 'indNoVowel', 'lookup': 8, 'transformation': ['I']},
+        {'condition': 'OR', 'symbols': ['down bow', '8 rest'], 'required': '>2Port', 'lookup': 4, 'transformation': ['R']},
+        {'condition': 'OR', 'symbols': ['breve', 'double sharp'], 'required': '', 'lookup': 5, 'transformation': ['P']},
+        {'condition': 'NO'}
+    ]
 
     sequence_dic = [
-        ['F', 'D', 'F#', 'G#', 'C', 'B', 'A#', 'C#', 'G', 'E', 'D#', 'A'],
-        ['A#', 'A', 'C', 'E', 'C#', 'D', 'D#', 'G', 'B', 'F#', 'G#', 'F'],
-        ['F#', 'B', 'A', 'G', '#D', 'C', 'G', 'C#', 'F', 'D#', 'E', 'A#'],
-        ['E', 'D#', 'D', 'F#', 'F', 'A#', 'G#', 'C#', 'C', 'B', 'G', 'A'],
-        ['D', 'E', 'A', 'A#', 'C', 'B', 'C#', 'G#', 'F', 'F#', 'D#', 'G'],
-        ['C', 'D#', 'F#', 'D', 'F', 'C#', 'B', 'A', 'G', 'A#', 'E', 'G#'],
-        ['G#', 'C', 'A#', 'C#', 'E', 'G', 'B', 'D#', 'A', 'D', 'F', 'F#'],
-        ['E', 'A', 'C#', 'B', 'G', 'G#', 'A#', 'D#', 'F#', 'F', 'C', 'D'],
-        ['G#', 'D#', 'D', 'E', 'A#', 'C#', 'F#', 'G', 'F', 'A', 'C', 'B'],
-        ['D#', 'G#', 'C', 'B', 'D', 'C#', 'F#', 'A#', 'F', 'G', 'A', 'E']
+        [6, 3, 7, 9, 1, 12, 11, 2, 8, 5, 4, 10]
+        [11, 10, 1, 5, 2, 3, 4, 8, 12, 7, 9, 6],
+        [7, 12, 10, 9, 3, 1, 8, 2, 6, 4, 5, 11],
+        [5, 4, 3, 7, 6, 11, 9, 2, 1, 12, 8, 10],
+        [3, 5, 10, 11, 1, 12, 2, 9, 6, 7, 4, 8],
+        [1, 4, 7, 3, 6, 2, 12, 10, 8, 11, 5, 9],
+        [9, 1, 11, 2, 5, 8, 12, 4, 10, 3, 6, 7],
+        [5, 10, 2, 12, 8, 9, 11, 4, 7, 6, 1, 3],
+        [9, 4, 3, 5, 11, 2, 7, 8, 6, 10, 1, 12],
+        [4, 9, 1, 12, 3, 2, 7, 11, 6, 8, 10, 5]
     ]
 
     translate_dic = [
@@ -39,11 +40,11 @@ def cruel_piano_keys(bomb_data):
         {'value': 12, 'note': 'B'}
     ]
     
-    
-    symbols_input = input('Usage <symbol1, symbol2, symbol3>: ').lower().replace(', ', ',').split(',')
+
+    symbols_input = input('Usage <symbol1, symbol2...symbol4>: ').lower().replace(', ', ',').split(',')
 
     for key in key_dic:
-        if key['condition'] != 'AND':
+        if key['condition'] == 'OR':
             for symbol in key['symbols']:
                 if symbol in symbols_input:
                     if furtherRequirements(key['required']):
@@ -58,28 +59,40 @@ def cruel_piano_keys(bomb_data):
         elif key['condition'] == 'NO':
             num = list(int(x) for x in bomb_data['serial'] if x.isdigit())
             num.sort(reverse=True)
-            print('Sequence: ' + key['sequence']*num[0]+1))
+            print('Sequence: ' + key['sequence']*num[0]+1)
         else:
             print('---ERROR---\nNo sequence found!')
 
 def furtherRequirements(required):
     if required == '':
         return True
-    elif required == 'SE>O' and len(list(x for x in bomb_data['serial'] if x.isdigit() and int(x) %2 == 0)) > len(list(x for x in bomb_data['serial'] if x.isdigit() and int(x) %2 != 0)):
+    elif required == '2+ind' and len(bomb_data['ind_LIT'])+len(bomb_data['ind_UNLIT']) > 1:
         return True
-    elif required == 'SDUPE' and len(set(bomb_data['serial'])) != len(bomb_data['serial']):
+    elif required == 'empty plate' and input('Is there an empty port plate? (Y/N): ').lower == 'y'):
         return True
-    elif required == 'DifPort<3' and [bomb_data['port_parallel'], bomb_data['port_dvi'], bomb_data['port_ps2'], bomb_data['port_rj45'], bomb_data['port_serial'], bomb_data['port_rca']].count(True) < 3:
+    elif required == '2+samePort' and sum([1 for x in [bomb_data['port_parallel'],bomb_data['port_dvi'],bomb_data['port_ps2'],bomb_data['port_rj45'],bomb_data['port_serial'],bomb_data['port_rca']] if x > 0]) < 3:
         return True
-    elif required == 'IndVowel' and any(x in str(bomb_data['ind_LIT']) for x in ['A', 'E', 'I', 'O', 'U']):
+    elif required == '2+plate' and bomb_data['port_plate'] > 1:
         return True
-    elif required == 'AA>2' and bomb_data['bat_AA'] > 2:
+    elif required == 'Svowel' and bomb_data['serial_vowel']:
         return True
-    elif required == 'S19' and any(x in bomb_data['serial'] for x in ['1', '9']):
+    elif required == 'batEven' and bomb_data['bat_total'] %2 == 0:
+        return True
+    elif required == 'indNoVowel' and not any(x in str(bomb_data['ind_LIT']+bomb_data['ind_UNLIT']) for x in ['A', 'E', 'I', 'O', 'U']):
+        return True
+    elif required == '>2Port' and bomb_data['port_total'] < 2:
         return True
     else:
         return False
 
+
+def transform(mode, sequence):
+    return
+
+def wrap(x, xmin, xmax):
+    while not xmax > x > xmin:
+        x = x+xmax if x < xmin else x-xmax
+    return x
 
 
 bomb_data = {
@@ -89,16 +102,17 @@ bomb_data = {
     'ind_LIT': ['TRN', 'BOB'],
     'ind_UNLIT': ['CAR'],
     'serial': '1T5FI5',
-    'serial_odd': False,
-    'serial_vowel': True,
-    'port_parallel': False,
-    'port_dvi': False,
-    'port_ps2': False,
-    'port_rj45': False,
-    'port_serial': False,
-    'port_rca': False,
+    'serial_odd': 0,
+    'serial_vowel': 0,
+    'port_parallel': 0,
+    'port_dvi': 0,
+    'port_ps2': 0,
+    'port_rj45': 0,
+    'port_serial': 0,
+    'port_rca': 0,
+    'port_total': 0,
     'modules_total': 101,
     'modules_solved': 0,
 }
 
-festive_piano_keys(bomb_data)
+cruel_piano_keys(bomb_data)
