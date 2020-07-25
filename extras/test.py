@@ -1,9 +1,41 @@
 ### test file ###
 
+print('test'[1:])
+
+def transform(mode, sequence):
+    for i, method in enumerate(mode):
+        if method == 'R':
+            sequence.reverse()
+        elif method == 'T':
+            sequence = list((x+mode[i+1]) % 12 for x in sequence)
+        elif method == 'I':
+            for i, thing in enumerate(sequence):
+                diff = sequence[i-1]-sequence[i] if i > 1 else 0
+                sequence = list(note+diff for x, note in enumerate(sequence) if x > i)
+                    
+    return sequence
+
+
+mode = ['I']
+sequence = [5, 2, 6, 8, 0, 11, 10, 1, 7, 4, 3, 9]
+print(transform(mode, sequence))
 
 
 
 
+'''
+
+
+def wrap(x, xmin, xmax):
+    while not xmax >= x >= xmin:
+        x = x+xmax if x < xmin else x-xmax
+    return x
+
+
+print(wrap(10, 0, 9))
+print([x % 10])
+'''
+'''
 
 x = ['FRK', 'BOB']
 y = ['TRN', 'IND']
@@ -13,7 +45,7 @@ y = ['TRN', 'IND']
 print(str(x+y))
 
 
-
+'''
 
 
 

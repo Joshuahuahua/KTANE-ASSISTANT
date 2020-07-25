@@ -29,7 +29,7 @@ def festive_piano_keys(bomb_data):
         elif key['condition'] == 'NO':
             num = list(int(x) for x in bomb_data['serial'] if x.isdigit())
             num.sort(reverse=True)
-            print('Sequence: ' + key['sequence']*num[0]+1))
+            print('Sequence: ' + key['sequence']*num[0]+1)
         else:
             print('---ERROR---\nNo sequence found!')
 

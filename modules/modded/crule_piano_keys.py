@@ -1,10 +1,10 @@
 def cruel_piano_keys(bomb_data):
     key_dic = [
         {'condition': 'AND', 'symbols': ['breve', 'turn'], 'required': '2+ind', 'lookup': list(x for x in bomb_data['serial'] if x.isdigit())[0], 'transformation': ['I', 'R']},
-        {'condition': 'OR', 'symbols': ['sharp', 'double sharp'], 'required': 'empty plate', 'lookup': wrap((bomb_data['bat_AA']/2)+bomb_data['bat_B'], 0, 9), 'transformation': ['T', 'minsRem']},
+        {'condition': 'OR', 'symbols': ['sharp', 'double sharp'], 'required': 'empty plate', 'lookup': ((bomb_data['bat_AA']/2)+bomb_data['bat_B']) % 10, 'transformation': ['T', 'minsRem']},
         {'condition': 'OR', 'symbols': ['fermata', 'down bow'], 'required': '2+samePort', 'lookup': int(str(bomb_data['modules_solved'])[-1]), 'transformation': ['I']},
-        {'condition': 'AND', 'symbols': ['clef', '8 rest'], 'required': '2+plate', 'lookup': wrap(9-len(bomb_data['ind_UNLIT']), 0, 9), 'transformation': ['R']},
-        {'condition': 'OR', 'symbols': ['cut time', 'common time'], 'required': 'Svowel', 'lookup': int(str(bomb_data['strikes'])[-1]), 'transformation': ['R', 'T', 3]},
+        {'condition': 'AND', 'symbols': ['clef', '8 rest'], 'required': '2+plate', 'lookup': (9-len(bomb_data['ind_UNLIT'])) % 10, 'transformation': ['R']},
+        {'condition': 'OR', 'symbols': ['cut time', 'common time'], 'required': 'Svowel', 'lookup': int(str(bomb_data['strikes'])[-1]), 'transformation': ['R', 'T', -3]},
         {'condition': 'OR', 'symbols': ['natural', 'mordent'], 'required': 'batEven', 'lookup': 7 if bomb_data['port_dvi'] > 0 else 3, 'transformation': ['T', bomb_data['port_total']]},
         {'condition': 'OR', 'symbols': ['flat', '4 rest'], 'required': 'indNoVowel', 'lookup': 8, 'transformation': ['I']},
         {'condition': 'OR', 'symbols': ['down bow', '8 rest'], 'required': '>2Port', 'lookup': 4, 'transformation': ['R']},
@@ -13,17 +13,18 @@ def cruel_piano_keys(bomb_data):
     ]
 
     sequence_dic = [
-        [6, 3, 7, 9, 1, 12, 11, 2, 8, 5, 4, 10]
-        [11, 10, 1, 5, 2, 3, 4, 8, 12, 7, 9, 6],
-        [7, 12, 10, 9, 3, 1, 8, 2, 6, 4, 5, 11],
-        [5, 4, 3, 7, 6, 11, 9, 2, 1, 12, 8, 10],
-        [3, 5, 10, 11, 1, 12, 2, 9, 6, 7, 4, 8],
-        [1, 4, 7, 3, 6, 2, 12, 10, 8, 11, 5, 9],
-        [9, 1, 11, 2, 5, 8, 12, 4, 10, 3, 6, 7],
-        [5, 10, 2, 12, 8, 9, 11, 4, 7, 6, 1, 3],
-        [9, 4, 3, 5, 11, 2, 7, 8, 6, 10, 1, 12],
-        [4, 9, 1, 12, 3, 2, 7, 11, 6, 8, 10, 5]
+        [5, 2, 6, 8, 0, 11, 10, 1, 7, 4, 3, 9],
+        [10, 9, 0, 4, 1, 2, 3, 7, 11, 6, 8, 5],
+        [6, 11, 9, 8, 2, 0, 7, 1, 5, 3, 4, 10],
+        [4, 3, 2, 6, 5, 10, 8, 1, 0, 11, 7, 9],
+        [2, 4, 9, 10, 0, 11, 1, 8, 5, 6, 3, 7],
+        [0, 3, 6, 2, 5, 1, 11, 9, 7, 10, 4, 8],
+        [8, 0, 10, 1, 4, 7, 11, 3, 9, 2, 5, 6],
+        [4, 9, 1, 11, 7, 8, 10, 3, 6, 5, 0, 2],
+        [8, 3, 2, 4, 10, 1, 6, 7, 5, 9, 0, 11],
+        [3, 8, 0, 11, 2, 1, 6, 10, 5, 7, 9, 4]
     ]
+
 
     translate_dic = [
         {'value': 1, 'note': 'C'},
@@ -48,27 +49,26 @@ def cruel_piano_keys(bomb_data):
             for symbol in key['symbols']:
                 if symbol in symbols_input:
                     if furtherRequirements(key['required']):
-                        print('Sequence: ' + key['sequence'])
+                        print('Sequence: ' + transform(key['transformation'], key['sequence']))
                         return
 
         elif key['condition'] == 'AND':
             if key['symbols'][0] in symbols_input and key['symbols'][1] in symbols_input:
                 if furtherRequirements(key['required']):
-                    print('Sequence: ' + key['sequence'])
+                    print('Sequence: ' + transform(key['transformation'], key['sequence']))
                     return
-        elif key['condition'] == 'NO':
-            num = list(int(x) for x in bomb_data['serial'] if x.isdigit())
-            num.sort(reverse=True)
-            print('Sequence: ' + key['sequence']*num[0]+1)
         else:
-            print('---ERROR---\nNo sequence found!')
+            return False
+
+
 
 def furtherRequirements(required):
+    return True
     if required == '':
         return True
     elif required == '2+ind' and len(bomb_data['ind_LIT'])+len(bomb_data['ind_UNLIT']) > 1:
         return True
-    elif required == 'empty plate' and input('Is there an empty port plate? (Y/N): ').lower == 'y'):
+    elif required == 'empty plate' and input('Is there an empty port plate? (Y/N): ').lower == 'y':
         return True
     elif required == '2+samePort' and sum([1 for x in [bomb_data['port_parallel'],bomb_data['port_dvi'],bomb_data['port_ps2'],bomb_data['port_rj45'],bomb_data['port_serial'],bomb_data['port_rca']] if x > 0]) < 3:
         return True
@@ -87,12 +87,10 @@ def furtherRequirements(required):
 
 
 def transform(mode, sequence):
-    return
+    for method in mode:
+        if method = 'R':
+            sequence = sequence.reverse()
 
-def wrap(x, xmin, xmax):
-    while not xmax > x > xmin:
-        x = x+xmax if x < xmin else x-xmax
-    return x
 
 
 bomb_data = {
@@ -111,6 +109,8 @@ bomb_data = {
     'port_serial': 0,
     'port_rca': 0,
     'port_total': 0,
+    'port_plate': 0,
+    'strikes': 0,
     'modules_total': 101,
     'modules_solved': 0,
 }
