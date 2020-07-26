@@ -1,6 +1,7 @@
 ### test file ###
 
 print('test'[1:])
+print('test'[:1])
 
 def transform(mode, sequence):
     for i, method in enumerate(mode):
@@ -9,15 +10,21 @@ def transform(mode, sequence):
         elif method == 'T':
             sequence = list((x+mode[i+1]) % 12 for x in sequence)
         elif method == 'I':
+            newList = []
             for i, thing in enumerate(sequence):
-                diff = sequence[i-1]-sequence[i] if i > 1 else 0
-                sequence = list(note+diff for x, note in enumerate(sequence) if x > i)
+                if i > 0:
+                    diff = sequence[i-1]-sequence[i]
+                else:
+                    diff = 0
+                newList.append(sequence[:i])
+                for x, note in enumerate(sequence[i:]):
+                    newList.append(note+diff)
                     
-    return sequence
+    return newList
 
 
 mode = ['I']
-sequence = [5, 2, 6, 8, 0, 11, 10, 1, 7, 4, 3, 9]
+sequence = [1,2,3,4,5,6,7,8]
 print(transform(mode, sequence))
 
 
