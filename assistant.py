@@ -14,6 +14,7 @@ from modules.vanilla.maze import maze
 ###################################### MODDED ######################################
 from modules.modded.colour_flash import colour_flash
 from modules.modded.combination_locks import combination_locks
+from modules.modded.cruel_piano_keys import cruel_piano_keys
 from modules.modded.festive_piano_keys import festive_piano_keys
 from modules.modded.emoji_math import emoji_math
 #from modules.modded.BLANK import BLANK
@@ -109,9 +110,9 @@ def init():
         'port_rj45': port_rj45,
         'port_serial': port_serial,
         'port_rca': port_rca,
-        'port_total': port_parallel+port_dvi+port_ps2+port_rj45+port_serial+port_rca
+        'port_total': port_parallel+port_dvi+port_ps2+port_rj45+port_serial+port_rca,
         'port_plate': port_plate,
-        'strikes': 0
+        'strikes': 0,
         'modules_total': 101,
         'modules_solved': 0,
     }
@@ -163,22 +164,26 @@ while True:
         
 ###################################### MODDED ######################################
 
-    elif user_input == 'two bits':
-        two_bits(bomb_data)
+    elif user_input == 'colour flash':
+        colour_flash()
     elif user_input == 'combination lock' or user_input == 'combination locks':
         combination_locks(bomb_data)
-    elif user_input == 'word scramble' or user_input == 'anagram':
-        word_scramble_anagram()
     elif user_input == 'emoji math':
         emoji_math()
     elif user_input == 'festive piano keys':
         festive_piano_keys(bomb_data)
+    elif user_input == 'cruel piano keys':
+        result = cruel_piano_keys(bomb_data)
+        if result[0] == False:
+            piano_keys(result[1])
     elif user_input == 'piano keys':
-        piano_keys(bomb_data)
-    elif user_input == 'colour flash':
-        colour_flash()
+        piano_keys(bomb_data, '')
     elif user_input == 'switches':
         switches()
+    elif user_input == 'two bits':
+        two_bits(bomb_data)
+    elif user_input == 'word scramble' or user_input == 'anagram':
+        word_scramble_anagram()
 
 
     elif user_input == 'help':

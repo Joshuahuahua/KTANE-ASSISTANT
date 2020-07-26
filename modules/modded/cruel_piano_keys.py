@@ -13,32 +13,32 @@ def cruel_piano_keys(bomb_data):
     ]
 
     sequence_dic = [
-        [5, 2, 6, 8, 0, 11, 10, 1, 7, 4, 3, 9],
-        [10, 9, 0, 4, 1, 2, 3, 7, 11, 6, 8, 5],
-        [6, 11, 9, 8, 2, 0, 7, 1, 5, 3, 4, 10],
-        [4, 3, 2, 6, 5, 10, 8, 1, 0, 11, 7, 9],
-        [2, 4, 9, 10, 0, 11, 1, 8, 5, 6, 3, 7],
-        [0, 3, 6, 2, 5, 1, 11, 9, 7, 10, 4, 8],
-        [8, 0, 10, 1, 4, 7, 11, 3, 9, 2, 5, 6],
-        [4, 9, 1, 11, 7, 8, 10, 3, 6, 5, 0, 2],
-        [8, 3, 2, 4, 10, 1, 6, 7, 5, 9, 0, 11],
-        [3, 8, 0, 11, 2, 1, 6, 10, 5, 7, 9, 4]
+        ['F', 'D', 'F#', 'G#', 'C', 'B', 'A#', 'C#', 'G', 'E', 'D#', 'A'],
+        ['A#', 'A', 'C', 'E', 'C#', 'D', 'D#', 'G', 'B', 'F#', 'G#', 'F'],
+        ['F#', 'B', 'A', 'G#', 'D', 'C', 'G', 'C#', 'F', 'D#', 'E', 'A#'],
+        ['E', 'D#', 'D', 'F#', 'F', 'A#', 'G#', 'C#', 'C', 'B', 'G', 'A'],
+        ['D', 'E', 'A', 'A#', 'C', 'B', 'C#', 'G#', 'F', 'F#', 'D#', 'G'],
+        ['C', 'D#', 'F#', 'D', 'F', 'C#', 'B', 'A', 'G', 'A#', 'E', 'G#'],
+        ['G#', 'C', 'A#', 'C#', 'E', 'G', 'B', 'D#', 'A', 'D', 'F', 'F#'],
+        ['E', 'A', 'C#', 'B', 'G', 'G#', 'A#', 'D#', 'F#', 'F', 'C', 'D'],
+        ['G#', 'D#', 'D', 'E', 'A#', 'C#', 'F#', 'G', 'F', 'A', 'C', 'B'],
+        ['D#', 'G#', 'C', 'B', 'D', 'C#', 'F#', 'A#', 'F', 'G', 'A', 'E']
     ]
 
-
+    global translate_dic
     translate_dic = [
-        {'value': 1, 'note': 'C'},
-        {'value': 2, 'note': 'C#'},
-        {'value': 3, 'note': 'D'},
-        {'value': 4, 'note': 'D#'},
-        {'value': 5, 'note': 'E'},
-        {'value': 6, 'note': 'F'},
-        {'value': 7, 'note': 'F#'},
-        {'value': 8, 'note': 'G'},
-        {'value': 9, 'note': 'G#'},
-        {'value': 10, 'note': 'A'},
-        {'value': 11, 'note': 'A#'},
-        {'value': 12, 'note': 'B'}
+        {'value': 0, 'note': 'C'},
+        {'value': 1, 'note': 'C#'},
+        {'value': 2, 'note': 'D'},
+        {'value': 3, 'note': 'D#'},
+        {'value': 4, 'note': 'E'},
+        {'value': 5, 'note': 'F'},
+        {'value': 6, 'note': 'F#'},
+        {'value': 7, 'note': 'G'},
+        {'value': 8, 'note': 'G#'},
+        {'value': 9, 'note': 'A'},
+        {'value': 10, 'note': 'A#'},
+        {'value': 11, 'note': 'B'}
     ]
     
 
@@ -49,7 +49,11 @@ def cruel_piano_keys(bomb_data):
             for symbol in key['symbols']:
                 if symbol in symbols_input:
                     if furtherRequirements(key['required']):
-                        print('Sequence: ' + transform(key['transformation'], key['sequence']))
+                        sequence = sequence_dic[key['lookup']]
+                        convert(sequence, 'value')
+                        transform(key['transformation'], sequence)
+                        convert(sequence, 'note')
+                        print('Sequence: ' + ', '.join(sequence))
                         return
 
         elif key['condition'] == 'AND':
@@ -58,7 +62,7 @@ def cruel_piano_keys(bomb_data):
                     print('Sequence: ' + transform(key['transformation'], key['sequence']))
                     return
         else:
-            return False
+            return [False, symbols_input]
 
 
 
@@ -87,10 +91,34 @@ def furtherRequirements(required):
 
 
 def transform(mode, sequence):
-    for method in mode:
-        if method = 'R':
-            sequence = sequence.reverse()
+    for i, method in enumerate(mode):
+        if method == 'R':
+            sequence.reverse()
+        elif method == 'T':
+            sequence = list((x+mode[i+1]) % 12 for x in sequence)
+        elif method == 'I':
+            newList = sequence
+            for i in range(0,len(sequence)-1):
+                tempList = []
+                diff = sequence[i]-sequence[i+1]
+                for item in newList[:i+1]:
+                    tempList.append(item)
+                for x in range(0, len(newList[i+1:])):
+                    tempList.append(newList[i:][x]+diff)
+                newList = tempList
+            sequence = list(x % 12 for x in tempList)
+    return sequence
 
+def convert(sequence, mode):
+    for i, current_input in enumerate(sequence):
+        for note in translate_dic:
+            if mode == 'note':
+                if current_input == note['value']:
+                    sequence[i] = note['note']
+            else:
+                if current_input == note['note']:
+                    sequence[i] = note['value']
+    return sequence
 
 
 bomb_data = {
@@ -114,5 +142,3 @@ bomb_data = {
     'modules_total': 101,
     'modules_solved': 0,
 }
-
-cruel_piano_keys(bomb_data)

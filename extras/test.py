@@ -1,7 +1,28 @@
 ### test file ###
 
-print('test'[1:])
-print('test'[:1])
+
+translate_dic = [
+    {'value': 0, 'note': 'C'},
+    {'value': 1, 'note': 'C#'},
+    {'value': 2, 'note': 'D'},
+    {'value': 3, 'note': 'D#'},
+    {'value': 4, 'note': 'E'},
+    {'value': 5, 'note': 'F'},
+    {'value': 6, 'note': 'F#'},
+    {'value': 7, 'note': 'G'},
+    {'value': 8, 'note': 'G#'},
+    {'value': 9, 'note': 'A'},
+    {'value': 10, 'note': 'A#'},
+    {'value': 11, 'note': 'B'}
+]
+
+symbols_input = input('Usage <symbol1, symbol2...symbol4>: ').upperC, C#, D^S().replace(', ', ',').split(',')
+print(symbols_input)
+for note in translate_dic:
+    symbols_input = symbols_input.replace(note['note'], note['value'])
+print(symbols_input)
+
+
 
 def transform(mode, sequence):
     for i, method in enumerate(mode):
@@ -10,22 +31,43 @@ def transform(mode, sequence):
         elif method == 'T':
             sequence = list((x+mode[i+1]) % 12 for x in sequence)
         elif method == 'I':
-            newList = []
-            for i, thing in enumerate(sequence):
-                if i > 0:
-                    diff = sequence[i-1]-sequence[i]
-                else:
-                    diff = 0
-                newList.append(sequence[:i])
-                for x, note in enumerate(sequence[i:]):
-                    newList.append(note+diff)
-                    
-    return newList
+            newList = sequence
+            for i in range(0,len(sequence)-1):
+                tempList = []
+                diff = sequence[i]-sequence[i+1]
+                for item in newList[:i+1]:
+                    tempList.append(item)
+                for x in range(0, len(newList[i+1:])):
+                    tempList.append(newList[i:][x]+diff)
+                newList = tempList
+            sequence = list(x % 12 for x in tempList)
+    return sequence
 
 
 mode = ['I']
-sequence = [1,2,3,4,5,6,7,8]
-print(transform(mode, sequence))
+sequence = [5,6,7,6,5]
+output = transform(mode, sequence)
+print(output)
+
+translate_dic = [
+    {'value': 0, 'note': 'C'},
+    {'value': 1, 'note': 'C#'},
+    {'value': 2, 'note': 'D'},
+    {'value': 3, 'note': 'D#'},
+    {'value': 4, 'note': 'E'},
+    {'value': 5, 'note': 'F'},
+    {'value': 6, 'note': 'F#'},
+    {'value': 7, 'note': 'G'},
+    {'value': 8, 'note': 'G#'},
+    {'value': 9, 'note': 'A'},
+    {'value': 10, 'note': 'A#'},
+    {'value': 11, 'note': 'B'}
+]
+for i, current_input in enumerate(output):
+    for note in translate_dic:
+        if current_input == note['value']:
+            output[i] = note['note']
+print(output)
 
 
 
