@@ -1,6 +1,22 @@
 ### test file ###
 
 
+
+
+
+
+def isnotable(checkName):
+    return 'Is notable' if checkName[0].lower() == 'n' and len(checkName) >= 5 else 'Is NOT notable'
+print(isnotable(input('Input a nickname: ')))
+
+
+
+
+
+
+
+
+'''
 translate_dic = [
     {'value': 0, 'note': 'C'},
     {'value': 1, 'note': 'C#'},
@@ -70,7 +86,7 @@ for i, current_input in enumerate(output):
 print(output)
 
 
-
+'''
 
 '''
 
