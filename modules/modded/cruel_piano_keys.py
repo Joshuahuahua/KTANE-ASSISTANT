@@ -48,31 +48,32 @@ def cruel_piano_keys(bomb_data):
         if key['condition'] == 'OR':
             for symbol in key['symbols']:
                 if symbol in symbols_input:
-                    if furtherRequirements(key['required']):
+                    if furtherRequirements(key['required'], bomb_data):
                         sequence = sequence_dic[key['lookup']]
                         convert(sequence, 'value')
                         transform(key['transformation'], sequence)
                         convert(sequence, 'note')
                         print('Sequence: ' + ', '.join(sequence))
-                        return
+                        return [True]
 
         elif key['condition'] == 'AND':
             if key['symbols'][0] in symbols_input and key['symbols'][1] in symbols_input:
-                if furtherRequirements(key['required']):
+                if furtherRequirements(key['required'], bomb_data):
                     print('Sequence: ' + transform(key['transformation'], key['sequence']))
-                    return
+                    return [True]
         else:
+            print('return false')
             return [False, symbols_input]
 
 
 
-def furtherRequirements(required):
-    return True
+def furtherRequirements(required, bomb_data):
+    #return True
     if required == '':
         return True
     elif required == '2+ind' and len(bomb_data['ind_LIT'])+len(bomb_data['ind_UNLIT']) > 1:
         return True
-    elif required == 'empty plate' and input('Is there an empty port plate? (Y/N): ').lower == 'y':
+    elif required == 'empty plate' and bomb_data['port_plate_empty'] > 0:
         return True
     elif required == '2+samePort' and sum([1 for x in [bomb_data['port_parallel'],bomb_data['port_dvi'],bomb_data['port_ps2'],bomb_data['port_rj45'],bomb_data['port_serial'],bomb_data['port_rca']] if x > 0]) < 3:
         return True
@@ -120,25 +121,29 @@ def convert(sequence, mode):
                     sequence[i] = note['value']
     return sequence
 
-
+'''
 bomb_data = {
-    'bat_AA': 2,
-    'bat_B': 0,
-    'bat_total': 2,
-    'ind_LIT': ['TRN', 'BOB'],
-    'ind_UNLIT': ['CAR'],
-    'serial': '1T5FI5',
-    'serial_odd': 0,
+    'bat_AA': 0,
+    'bat_B': 1,
+    'bat_total': 1,
+    'ind_LIT': ['SIG', 'SNG'],
+    'ind_UNLIT': [],
+    'serial': 'Z25BB1',
+    'serial_odd': 1,
     'serial_vowel': 0,
     'port_parallel': 0,
     'port_dvi': 0,
-    'port_ps2': 0,
-    'port_rj45': 0,
+    'port_ps2': 1,
+    'port_rj45': 2,
     'port_serial': 0,
-    'port_rca': 0,
-    'port_total': 0,
-    'port_plate': 0,
+    'port_rca': 2,
+    'port_total': 5,
+    'port_plate': 2,
+    'port_plate_empty': 0,
     'strikes': 0,
-    'modules_total': 101,
+    'modules_total': 4,
     'modules_solved': 0,
 }
+
+cruel_piano_keys(bomb_data)
+'''

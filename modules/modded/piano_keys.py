@@ -1,18 +1,19 @@
 def piano_keys(bomb_data, symbols_input):
     key_dic = [
-        {'condition': '', 'symbols': ['flat'], 'required': 'Even', 'sequence': 'Bb Bb Bb Bb Gb Ab Bb Ab Bb'},
-        {'condition': 'OR', 'symbols': ['common time', 'sharp'], 'required': 'H2', 'sequence': 'Eb Eb D D Eb Eb D Eb Eb D D Eb'},
-        {'condition': 'AND', 'symbols': ['natural', 'fermata'], 'required': '', 'sequence': 'E F# F# F# E E E'},
-        {'condition': 'OR', 'symbols': ['cut time', 'turn'], 'required': 'RCA', 'sequence': 'Bb A Bb F Eb Bb A Bb F Eb'},
-        {'condition': '', 'symbols': ['clef'], 'required': 'SND', 'sequence': 'E E E C E G G'},
-        {'condition': 'OR', 'symbols': ['mordent', 'fermata', 'common time'], 'required': 'B3', 'sequence': 'C# D E F C# D E F Bb A'},
-        {'condition': 'AND', 'symbols': ['flat', 'sharp'], 'required': '', 'sequence': 'G G C G G C G C'},
-        {'condition': 'OR', 'symbols': ['cut time', 'mordent'], 'required': 'S378', 'sequence': 'A E F G F E D D F A'},
-        {'condition': 'OR', 'symbols': ['Natural', 'Turn', 'Clef'], 'required': '', 'sequence': 'G G G Eb Bb G Eb Bb G'},
-        {'condition': 'NO', 'symbols': [''], 'required': '', 'sequence': 'B D A G A B D A'}]
+        {'condition': '', 'symbols': ['flat'], 'required': 'Even', 'sequence': 'Bb, Bb, Bb, Bb, Gb, Ab, Bb, Ab, Bb'},
+        {'condition': 'OR', 'symbols': ['common time', 'sharp'], 'required': 'H2', 'sequence': 'Eb, Eb, D, D, Eb, Eb, D, Eb, Eb, D, D, Eb'},
+        {'condition': 'AND', 'symbols': ['natural', 'fermata'], 'required': '', 'sequence': 'E, F#, F#, F#, E, E, E'},
+        {'condition': 'OR', 'symbols': ['cut time', 'turn'], 'required': 'RCA', 'sequence': 'Bb, A, Bb, F, Eb, Bb, A, Bb, F, Eb'},
+        {'condition': '', 'symbols': ['clef'], 'required': 'SND', 'sequence': 'E, E, E, C, E, G, G'},
+        {'condition': 'OR', 'symbols': ['mordent', 'fermata', 'common time'], 'required': 'B3', 'sequence': 'C#, D, E, F, C#, D, E, F, Bb, A'},
+        {'condition': 'AND', 'symbols': ['flat', 'sharp'], 'required': '', 'sequence': 'G, G, C, G, G, C, G, C'},
+        {'condition': 'OR', 'symbols': ['cut time', 'mordent'], 'required': 'S378', 'sequence': 'A, E, F, G, F, E, D, D, F, A'},
+        {'condition': 'OR', 'symbols': ['Natural', 'Turn', 'Clef'], 'required': '', 'sequence': 'G, G, G, Eb, Bb, G, Eb, Bb, G'},
+        {'condition': 'NO', 'symbols': [''], 'required': '', 'sequence': 'B, D, A, G, A, B, D, A'}]
 
     if not symbols_input:
         symbols_input = input('Usage <symbol1, symbol2, symbol3>: ').lower().replace(', ', ',').split(',')
+
 
 
     for key in key_dic:
@@ -36,7 +37,7 @@ def piano_keys(bomb_data, symbols_input):
     
 
 
-def furtherRequirements(required, bomb):
+def furtherRequirements(required, bomb_data):
     if required == '':
         return True
     if required == 'Even' and bomb_data['serial_odd'] == False:

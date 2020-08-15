@@ -74,6 +74,7 @@ def init():
             ind_unlit.append(user_input)
 
     while True:
+        serial = input('Enter the serial number: ').upper()
         try:
             serial_odd = False if int(serial[-1]) %2 == 0 else True
             serial_vowel = True if any(x in serial for x in ['A', 'E', 'I', 'O', 'U']) else False
@@ -94,6 +95,8 @@ def init():
     port_rca = assign_int('How many RCA ports are there?: ')
         
     port_plate = assign_int('How many port plates are there?: ')
+
+    port_plate_empty = assign_int('How many EMPTY port plates are there?: ')
     
     bomb_data = {
         'bat_AA': bat_aa,
@@ -112,6 +115,7 @@ def init():
         'port_rca': port_rca,
         'port_total': port_parallel+port_dvi+port_ps2+port_rj45+port_serial+port_rca,
         'port_plate': port_plate,
+        'port_plate_empty': port_plate_empty,
         'strikes': 0,
         'modules_total': 101,
         'modules_solved': 0,
@@ -133,6 +137,8 @@ while True:
     
 ###################################### VANILLA ######################################
 
+    if user_input == 'reset':
+        init()
     if user_input == 'solved':
         bomb_data['modules_solved']+=1
     if user_input[:8] == 'strikes ':
@@ -175,7 +181,7 @@ while True:
     elif user_input == 'cruel piano keys':
         result = cruel_piano_keys(bomb_data)
         if result[0] == False:
-            piano_keys(result[1])
+            piano_keys(bomb_data, result[1])
     elif user_input == 'piano keys':
         piano_keys(bomb_data, '')
     elif user_input == 'switches':
@@ -184,6 +190,7 @@ while True:
         two_bits(bomb_data)
     elif user_input == 'word scramble' or user_input == 'anagram':
         word_scramble_anagram()
+
 
 
     elif user_input == 'help':

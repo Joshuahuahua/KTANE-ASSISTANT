@@ -4,13 +4,38 @@
 
 
 
+key_dic = [
+    {'condition': '', 'symbols': ['flat'], 'required': 'Even', 'sequence': 'Bb Bb Bb Bb Gb Ab Bb Ab Bb'},
+    {'condition': 'OR', 'symbols': ['common time', 'sharp'], 'required': 'H2', 'sequence': 'Eb Eb D D Eb Eb D Eb Eb D D Eb'},
+    {'condition': 'AND', 'symbols': ['natural', 'fermata'], 'required': '', 'sequence': 'E F# F# F# E E E'},
+    {'condition': 'OR', 'symbols': ['cut time', 'turn'], 'required': 'RCA', 'sequence': 'Bb A Bb F Eb Bb A Bb F Eb'},
+    {'condition': '', 'symbols': ['clef'], 'required': 'SND', 'sequence': 'E E E C E G G'},
+    {'condition': 'OR', 'symbols': ['mordent', 'fermata', 'common time'], 'required': 'B3', 'sequence': 'C# D E F C# D E F Bb A'},
+    {'condition': 'AND', 'symbols': ['flat', 'sharp'], 'required': '', 'sequence': 'G G C G G C G C'},
+    {'condition': 'OR', 'symbols': ['cut time', 'mordent'], 'required': 'S378', 'sequence': 'A E F G F E D D F A'},
+    {'condition': 'OR', 'symbols': ['Natural', 'Turn', 'Clef'], 'required': '', 'sequence': 'G G G Eb Bb G Eb Bb G'},
+    {'condition': 'NO', 'symbols': [''], 'required': '', 'sequence': 'B D A G A B D A'}]
+
+for i, key in enumerate(key_dic):
+    arr = key['sequence'].split(' ')
+    ret = ''
+    for let in arr:
+        ret = ret + let + ', '
+    key_dic[i]['sequence'] = ret
+    print(key_dic[i])
+
+
+
+
+
+'''
 
 def isnotable(checkName):
     return 'Is notable' if checkName[0].lower() == 'n' and len(checkName) >= 5 else 'Is NOT notable'
 print(isnotable(input('Input a nickname: ')))
 
 
-
+'''
 
 
 
