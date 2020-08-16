@@ -19,6 +19,6 @@ Currently the master branch is only compatable with the vanilla modules. The onl
 - Python 3 (Tested in 3.8)
 
 ## Installation
-Clone the repository or download the latest release. Then simply run "assistant.py".
+Clone the repository or download the [latest release](https://github.com/Joshuahuahua/KTANE-ASSISTANT/releases/latest). Then simply run "assistant.py".
 When moving the program make sure "assistant.py" and the "modules" folder are in the same directory.
 
