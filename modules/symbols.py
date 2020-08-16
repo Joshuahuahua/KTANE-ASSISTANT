@@ -1,9 +1,6 @@
 #Coded by Joshuahuahua
 def symbols():
-    symbols_input = input('Usage <symbol1, symbol2, symbol3, symbol4>: ').lower().replace(', ', ',').replace('6', 'six').split(',')
-    if len(symbols_input) != 4:
-        print('--ERROR--\nExpected 4 items!')
-        return
+    
     symbols = [
         {'name': 'paddle', 'character': 'Ϙ', 'value': 1},
         {'name': 'a', 'character': 'Ѧ', 'value': 2},
@@ -14,7 +11,7 @@ def symbols():
         {'name': 'backwards c', 'character': 'Ͽ', 'value': 7},
         {'name': 'e', 'character': 'Ӭ', 'value': 8},
         {'name': 'squiggle', 'character': 'Ҩ', 'value': 9},
-        {'name': 'white star', 'character': '☆', 'value': 10},
+        {'name': 'wstar', 'character': '☆', 'value': 10},
         {'name': '?', 'character': '¿', 'value': 11},
         {'name': 'copyright', 'character': '©', 'value': 12},
         {'name': 'butt', 'character': 'Ѽ', 'value': 13},
@@ -23,17 +20,17 @@ def symbols():
         {'name': 'six', 'character': 'Ϭ', 'value': 16},
         {'name': 'p', 'character': '¶', 'value': 17},
         {'name': 'b', 'character': 'Ѣ', 'value': 18},
-        {'name': 'smiley face', 'character': 'ټ', 'value': 19},
+        {'name': 'smile', 'character': 'ټ', 'value': 19},
         {'name': 'trident', 'character': 'ψ', 'value': 20},
         {'name': 'c', 'character': 'Ͼ', 'value': 21},
         {'name': 'alien 3', 'character': 'Ѯ', 'value': 22},
-        {'name': 'black star', 'character': '★', 'value': 23},
+        {'name': 'bstar', 'character': '★', 'value': 23},
         {'name': 'not equal', 'character': '҂', 'value': 24},
         {'name': 'ae', 'character': 'æ', 'value': 25},
         {'name': 'straight h', 'character': 'Ҋ', 'value': 26},
-        {'name': 'omega', 'character': 'Ω', 'value': 27},
+        {'name': 'omega', 'character': 'Ω', 'value': 27}
     ]
-    
+
     column_list = [
         {'column': [1,2,3,4,5,6,7], 'total': 0},
         {'column': [8,1,7,9,10,6,11], 'total': 0},
@@ -44,7 +41,21 @@ def symbols():
     ]
 
     column_found = 0
+
+    print('=======================================')
+    for symbol in symbols:
+        sym_name = symbol['name']
+        sym_char = symbol['character']
+        print(sym_name.rjust(11) + ' | ' + sym_char)
+    print('=======================================')
+
+    symbols_input = input('Usage <symbol1, symbol2, symbol3, symbol4>: ').lower().replace(', ', ',').replace('6', 'six').split(',')
+    if len(symbols_input) != 4:
+        print('--ERROR--\nExpected 4 items!')
+        return
     
+
+
     # Convert name to value
     for i, current_input in enumerate(symbols_input):
         for symbol in symbols:
@@ -74,3 +85,5 @@ def symbols():
         if symbol in symbols_input:
             print(str(symbols[symbol-1]['name']))
     print('-----------')
+
+symbols()
