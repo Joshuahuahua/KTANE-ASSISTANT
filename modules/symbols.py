@@ -7,7 +7,7 @@ def symbols():
     symbols = [
         {'name': 'paddle', 'character': 'Ϙ', 'value': 1},
         {'name': 'a', 'character': 'Ѧ', 'value': 2},
-        {'name': 'landa', 'character': 'ƛ', 'value': 3},
+        {'name': 'lambda', 'character': 'ƛ', 'value': 3},
         {'name': 'lightning', 'character': 'Ϟ', 'value': 4},
         {'name': 'alien', 'character': 'Ѭ', 'value': 5},
         {'name': 'curly h', 'character': 'ϗ', 'value': 6},
