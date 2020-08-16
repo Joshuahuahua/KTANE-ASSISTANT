@@ -1,4 +1,5 @@
 #designed by Matthew Alphonso
+#NEEDS REFINING
 def simon_states():
     colours = ['red', 'blue', 'green', 'yellow']
     not_pressed['red','blue','green','yellow']

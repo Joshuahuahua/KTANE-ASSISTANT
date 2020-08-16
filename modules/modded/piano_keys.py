@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def piano_keys(bomb_data, symbols_input):
     key_dic = [
         {'condition': '', 'symbols': ['flat'], 'required': 'Even', 'sequence': 'Bb, Bb, Bb, Bb, Gb, Ab, Bb, Ab, Bb'},

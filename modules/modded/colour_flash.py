@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def colour_flash():
     colour_dic = ['red', 'yellow', 'green', 'blue', 'magenta', 'white']
     word_input = input('Usage <word1, word2, etc>: ').lower().replace(', ', ',').split(',')

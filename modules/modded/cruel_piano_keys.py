@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def cruel_piano_keys(bomb_data):
     key_dic = [
         {'condition': 'AND', 'symbols': ['breve', 'turn'], 'required': '2+ind', 'lookup': list(x for x in bomb_data['serial'] if x.isdigit())[0], 'transformation': ['I', 'R']},

@@ -1,3 +1,4 @@
+#Coded by Joshuahuahua
 def festive_piano_keys(bomb_data):
     key_dic = [
         {'condition': '', 'symbols': ['break'], 'required': 'SE>O', 'sequence': 'Eb F Eb C Ab F Eb'},
