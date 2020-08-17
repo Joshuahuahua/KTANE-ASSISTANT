@@ -1,6 +1,6 @@
 #SIGNATURE
 def morsematics():
-    morse = [
+    morse_dic = [
         {'name': 'A', 'value': 1, 'morse':'.-'},
         {'name': 'B', 'value': 2, 'morse':'-...'},
         {'name': 'C', 'value': 3, 'morse':'-.-.'},
@@ -39,9 +39,9 @@ def morsematics():
         {'name': '0', 'value': 0, 'morse':'-----'}]
 
     #get morse val from first 3 lights
-    morse_input1 = input('morse value for first light:')
-    morse_input2 = input('morse value for second light:')
-    morse_input3 = input('morse value for third light:')
+    morse_input = input('Usage <light1, light2, light3>: ').lower().replace(', ', ',').split(',')
+    for char in morse_dic:
+        for 
 
 
 morsematics()

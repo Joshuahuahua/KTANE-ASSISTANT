@@ -2,7 +2,7 @@
 #NEEDS REFINING
 def simon_states():
     colours = ['red', 'blue', 'green', 'yellow']
-    not_pressed['red','blue','green','yellow']
+    not_pressed = ['red','blue','green','yellow']
     priority = [{'top_left': 'red','highest': 'red', 'high': 'blue' ,'low': 'green','lowest': 'yellow'},
     {'top_left': 'yellow','highest': 'blue','high': 'yellow','low': 'red','lowest': 'green'},
     {'top_left': 'green','highest': 'green','high': 'red','low': 'yellow','lowest': 'blue'},
